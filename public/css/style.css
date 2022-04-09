@@ -1,0 +1,67 @@
+/**/
+body {
+	background-color: #F7F9FF;
+	padding-right: 25%;
+	padding-left: 25%;
+}
+
+/*login*/
+.container {
+	background-color: #FFFFFF;
+	height: 400px;
+	margin-top: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.container div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;	
+}
+.container form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;	
+}
+
+.login-title-container {
+	margin: 20px;
+}
+.login-title {
+	font-family: "moon 2.0";
+	font-weight: bold;
+	font-size: 35px;
+	color: #226acc;
+}
+.login-subtitle {
+	font-family: "red hat display";
+	font-size:  15px;
+	color:  #848fbb;
+}
+
+/*login-form*/
+.container form input {
+	margin: 10px;
+	width: 270px;
+	height: 35px;
+	border-width: 1px;
+	border-radius: 5px;
+	border-color: #226acc;
+}
+.container form button {
+	margin: 10px;
+	width: 270px;
+	height: 35px;
+	background-color: #226acc;
+	border-radius: 5px;
+	border-style: none;
+}
+.container form button text {
+	font-family: "red hat display";
+	font-size: 15px;
+	color: #ffffff;
+}
