@@ -6,10 +6,18 @@ body {
 }
 
 /*login*/
+.login-logo-container {
+	display: flex;
+	justify-content: center;
+}
+.login-logo {
+	width: 126px;
+	height: 126px;
+	margin-top: 5%;
+}
 .container {
 	background-color: #FFFFFF;
 	height: 400px;
-	margin-top: 25%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -21,13 +29,6 @@ body {
 	align-items: center;
 	flex-direction: column;	
 }
-.container form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;	
-}
-
 .login-title-container {
 	margin: 20px;
 }
@@ -44,13 +45,31 @@ body {
 }
 
 /*login-form*/
-.container form input {
-	margin: 10px;
-	width: 270px;
-	height: 35px;
+.container form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;	
+}
+.container form div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border-style: solid;
+	border-color: #226acc;
 	border-width: 1px;
 	border-radius: 5px;
-	border-color: #226acc;
+	height: 35px;
+	width: 270px;
+	margin: 10px;
+}
+.container form div img {
+	width: 28px;
+	height: 28px;
+}
+.container form input {
+	border-style: none;
+	height: 33px;
 }
 .container form button {
 	margin: 10px;
