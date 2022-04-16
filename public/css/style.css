@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  position: absolute;
+  background-color: #f7f9ff;
+}
+
+.div-nav {
+  position: fixed;
+  height: 100%;
+  width: 12%;
+  background-color: #226acc;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  width: 164px;
+  padding-top: 30px;
+  margin-left: -40px;
+  list-style-type: none;
+}
+
+.nav-item {
+  /* background-color: #42c01c; */
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-link {
+  color: #f7f9ff;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 10px;
+  font-family: "Moon 2.0", sans-serif;
+}
+
+.fi {
+  color: white;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+.nav-last {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+}
+
+.home-div {
+  background-color: brown;
+}
+
+.home-header {
+  color: #226acc;
+  font-size: 50px;
+  text-align: left;
+  padding-left: 50px;
+  text-transform: uppercase;
+  font-family: "Moon 2.0", sans-serif;
+}
+
+.upcomingEvents-div {
+  margin-top: 200px;
+  height: 200px;
+  width: 100%;
+  padding-top: 1px;
+  padding-left: 10px;
+  margin-left: 160px;
+  background-color: #e5eafc;
+}
+
+.upcomingHeader {
+  color: #226acc;
+  font-size: 18px;
+  font-family: "Moon 2.0", sans-serif;
+}
