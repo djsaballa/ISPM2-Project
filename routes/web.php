@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ADMIN
 Route::get('/', function () {
-    return view('welcome');
+    return view('./user/home');
+});
+Route::get('/bookings', function () {
+    return view('./admin/list-of-bookings');
+});
+Route::get('/employees', function () {
+    return view('./admin/list-of-employees');
+});
+Route::get('/schedules', function () {
+    return view('./admin/list-of-upcoming-events');
+});
+
+// USER
+Route::get('/myBookings', function () {
+    return view('./user/list-of-bookings');
+});
+Route::get('/map', function () {
+    return view('./user/map');
 });
