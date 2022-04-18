@@ -201,19 +201,59 @@
         @include('components.sidenavUser')
     </sideNav>
 
-    <div class="home-div">
-        <h1 class="home-header">
-            {!! 'You don’t have <br>
-            any bookings yet' !!}
+    <!-- <div class="home-div"> -->
+    <h1 class="home-header">
+        {!! 'You don’t have <br>
+        any bookings yet' !!}
+    </h1>
+
+
+    <div class="booking-header">
+        YOUR BOOKINGS
+    </div>
+
+    <div class="home-bookings">
+        <div class="home-bookings-circle">
+            <h3 class="home-booking-desk">Desk</h3>
+            <p class="desk-num">106</p>
+            <h3 class="home-booking-mon">APR</h3>
+            <p class="home-booking-date">07</p>
+
+            <img src="{{ asset('images/Desk.svg') }}" class="circle-desk">
+        </div>
+        <div class="circle-div"></div>
+    </div>
+
+    <div class="upcomingEvents-div">
+        <h1 class="upcomingHeader">
+            Upcoming Events
         </h1>
 
+        <div class="event-col">
 
-        <div class="upcomingEvents-div">
-            <h1 class="upcomingHeader">
-                Upcoming Events
-            </h1>
+
+            <div class="event-calendar">
+                <!-- <img src="{{ asset('images/calendar.png') }}" class="calendar" alt="calen"> -->
+                <img src="{{ asset('images/calendar.svg') }}" class="calendar">
+                <div class="calend-mon">APR</div>
+                <div class="calend-date">31</div>
+            </div>
+
+            <div class="event-info">
+                <h3 class="event-title">
+                    eMachine Foundation Day
+                </h3>
+                <p class="event-time">9:00 a.m. - 5:00 p.m.</p>
+                <p class="event-desc">"Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit,
+                    sed do eiusmod tempor”
+                </p>
+            </div>
+
         </div>
+
     </div>
+    <!-- </div> -->
 
 </body>
 
