@@ -1,4 +1,4 @@
-body {
+.home-body {
   margin: 0;
   position: absolute;
   background-color: #f7f9ff;
@@ -241,3 +241,5 @@ body {
 }
 
 /** END **/
+
+/*  */

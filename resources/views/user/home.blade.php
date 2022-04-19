@@ -195,7 +195,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="home-body">
 
     <sideNav>
         @include('components.sidenavUser')
