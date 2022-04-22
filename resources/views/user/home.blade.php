@@ -218,8 +218,8 @@
             <p class="desk-num">106</p>
             <h3 class="home-booking-mon">APR</h3>
             <p class="home-booking-date">07</p>
-
             <img src="{{ asset('images/Desk.svg') }}" class="circle-desk">
+
         </div>
         <div class="circle-div"></div>
     </div>
@@ -254,6 +254,7 @@
 
     </div>
     <!-- </div> -->
+
 
 </body>
 
