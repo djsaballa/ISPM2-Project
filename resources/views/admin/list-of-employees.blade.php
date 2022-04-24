@@ -14,7 +14,7 @@
     <sideNav>
         @include('components.sidenavAdmin')
     </sideNav>
-    
+
     <h1 class="employee-header">EMPLOYEES</h1>
 
     <input class="search-bar" type="text" name="searchbar" id="searchbar" placeholder="search people by name or email">
@@ -42,12 +42,12 @@
 
 </body>
 
-<script src="https://­code.jquery.com/­jquery-3.5.1.slim.min­.js" integrity="sha384-Df­Xdz2htPH0lsSSs5nCTpu­j/­zy4C+OGpamoFVy38MVBnE­+IbbVYUew+OrCXaRkfj"­ crossorigin="anonymo­us"></script>
-<script src="https://­cdn.jsdelivr.net/npm/­bootstrap@4.6.0/dist/­js/­bootstrap.bundle.min.­js" integrity="sha384-Pi­v4xVNRyMGpqkS2by6br4­gNJ7DXjqk09RmUpJ8jgG­tD7zP9yug3goQfGII0yA­ns" crossorigin="anonymo­us"></script>
-<script type="text/­javascript" charset="utf8" src="https://­cdn.datatables.net/­1.10.24/js/­jquery.dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
 <script>
-jQuery(document).rea­dy(function() {
-jQuery('#employees').­DataTable();
-});
-
-</html>
+    jQuery(document).ready(function() {
+        jQuery('#employees').DataTable();
+    });
+</script>
+< /html>
