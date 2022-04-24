@@ -2,6 +2,7 @@ body {
   margin: 0;
   position: absolute;
   background-color: #f7f9ff;
+  overflow-x: hidden;
 }
 
 .div-nav {
@@ -241,3 +242,86 @@ body {
 }
 
 /** END **/
+
+/** EMPLOYEES **/
+
+.employee-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.employee-table {
+  position: relative;
+  margin: 0;
+  width: 1200px;
+  left:  165px;
+  margin-top: 100px;
+  border-spacing: 0px;
+}
+
+.employee-table-header {
+  width: 100%;
+  height: 40px;
+  background-color: #EAEEFB;
+}
+.employee-table-header tr th {
+  font-family: "Moon 2.0";
+  font-weight: bold;
+  color:  #226ACC;
+}
+
+.employee-table-row {
+  height: 40px;
+  font-family: "Moon 2.0", "medium";
+  color: #226ACC;
+}
+
+.employee-table-row tr td {
+  border-bottom: 1px solid;
+  border-color: #848FBB;
+}
+
+.search-bar {
+  position: absolute;
+  left: 180px;
+  margin-top: 30px;
+  border-style: none;
+  font-family: "Red Hat Display";
+  font-color: #848FBB;
+  background-color: #f7f9ff;
+  width: 300px;
+  height: 35px;
+  font-size: 15px;
+  text-align: center;
+
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: 5%;
+}
+
+.search-bar[type="text"] {
+  background-image: url("../images/search.png");
+}
+
+.profile-image-header {
+  width: 40px;
+}
+
+.profile-image {
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  background-image: url("../images/profile-pic.png");
+}
