@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // ADMIN
 Route::get('/', function () {
-    return view('./user/home');
+    return view('./admin/home');
 });
 Route::get('/bookings', function () {
     return view('./admin/list-of-bookings');
