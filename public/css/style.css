@@ -1,17 +1,33 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  position: absolute;
+  height: 100%;
+  position: relative;
   background-color: #f7f9ff;
   overflow-x: hidden;
 }
 
+.container {
+  min-height: 100%;
+  position: relative;
+}
+
+.main-content {
+  margin-bottom: 125px;
+}
+
+/** SIDE NAV **/
+
 .div-nav {
-  position: fixed;
-  height: 100%;
+  top: 0;
   width: 12%;
+  height: 100%;
+  position: fixed;
   background-color: #226acc;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav {
@@ -22,7 +38,6 @@ body {
 }
 
 .nav-item {
-  /* background-color: #42c01c; */
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -52,6 +67,8 @@ body {
   bottom: 0px;
 }
 
+/** HOME BOOKINGS **/
+
 .home-div {
   width: 100%;
   background-color: brown;
@@ -65,8 +82,6 @@ body {
   text-transform: uppercase;
   font-family: "Moon 2.0", sans-serif;
 }
-
-/** HOME BOOKINGS **/
 
 .home-bookings {
   top: 20px;
@@ -155,7 +170,7 @@ body {
 /** UPCOMING EVENTS **/
 
 .upcomingEvents-div {
-  margin-top: 260px;
+  margin-top: 240px;
   height: 200px;
   width: 100%;
   padding-top: 1px;
@@ -324,4 +339,77 @@ body {
   background-position: center;
   align-items: center;
   background-image: url("../images/profile-pic.png");
+}
+
+/** FOOTER **/
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 125px; /* Height of the footer */
+  color: white;
+  background: #848fbb;
+  z-index: -1;
+  /* column-count: 3; */
+  padding-left: 10vh;
+}
+
+.footer-header {
+  font-size: 17px;
+  font-family: "Red Hat Display";
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: "Red Hat Display";
+}
+
+.about-company {
+  padding-top: 15px;
+  width: 30%;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Red Hat Display";
+}
+
+.about-pic {
+  float: left;
+  width: 10vh;
+}
+
+.about-text {
+  float: right;
+  margin-top: -10px;
+  color: #132548;
+}
+
+.silya-logo {
+  height: 10vh;
+  width: 10vh;
+}
+
+.links {
+  width: 20%;
+}
+
+.links-list {
+  float: left;
+  padding-left: -100px;
+  left: 0;
+  margin-top: -15px;
+}
+
+.location {
+  width: 20%;
 }
