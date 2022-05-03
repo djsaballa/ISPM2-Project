@@ -20,18 +20,10 @@ Route::get('/', function () {
 });
 
 // ADMIN
-Route::get('/', function () {
-    return view('./user/home');
-});
-Route::get('/bookings', function () {
-    return view('./admin/list-of-bookings');
-});
-Route::get('/employees', function () {
-    return view('./admin/list-of-employees');
-});
-Route::get('/schedules', function () {
-    return view('./admin/list-of-upcoming-events');
-});
+Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
+Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
+Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
+Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
 
 // USER
 Route::get('/user-bookings', [UserController::class, 'userBookings'])->name('user_bookings');
