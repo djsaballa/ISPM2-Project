@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <title>Document</title>
+    <title>List of Employees</title>
 </head>
 
 <body>
