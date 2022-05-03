@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// LOGIN
+Route::get('/', function () {
+    return view('login');
+});
 
 // ADMIN
 Route::get('/', function () {
@@ -28,9 +34,7 @@ Route::get('/schedules', function () {
 });
 
 // USER
-Route::get('/myBookings', function () {
-    return view('./user/list-of-bookings');
-});
-Route::get('/map', function () {
+Route::get('/user-bookings', [UserController::class, 'userBookings'])->name('user_bookings');
+Route::get('/user-map', function () {
     return view('./user/map');
 });
