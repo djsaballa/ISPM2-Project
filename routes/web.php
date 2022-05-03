@@ -26,7 +26,6 @@ Route::get('/admin-employees', [AdminController::class, 'employees'])->name('adm
 Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
 
 // USER
-Route::get('/user-bookings', [UserController::class, 'userBookings'])->name('user_bookings');
-Route::get('/user-map', function () {
-    return view('./user/map');
-});
+Route::get('/user-home', [UserController::class, 'home'])->name('user_home');
+Route::get('/user-bookings', [UserController::class, 'bookings'])->name('user_bookings');
+Route::get('/user-map', [UserController::class, 'map'])->name('user_map');
