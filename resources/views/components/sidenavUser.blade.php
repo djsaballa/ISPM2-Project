@@ -43,21 +43,21 @@
 
             <li class="nav-item {{ request()->is('/') ? 'active2' : '' }}">
                 <i class="fi fi-br-home {{ request()->is('/') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{ route(user_home) }">
                     Home
                 </a>
             </li>
 
             <li class="nav-item {{ request()->is('map') ? 'active2' : '' }}">
                 <i class="fi fi-br-map {{ request()->is('map') ? 'active' : '' }}"></i>
-                <a class="nav-link  {{ request()->is('map') ? 'active' : '' }}" href="map">
+                <a class="nav-link  {{ request()->is('map') ? 'active' : '' }}" href="{ route(user_map) }">
                     Map
                 </a>
             </li>
 
             <li class="nav-item {{ request()->is('myBookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-list {{ request()->is('myBookings') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('myBookings') ? 'active' : '' }}" href="myBookings">
+                <a class="nav-link {{ request()->is('myBookings') ? 'active' : '' }}" href="{ route(user_bookings) }">
                     Bookings
                 </a>
             </li>
