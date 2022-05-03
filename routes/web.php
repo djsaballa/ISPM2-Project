@@ -20,12 +20,19 @@ Route::get('/', function () {
 });
 
 // ADMIN
-Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
-Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
-Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
-Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
+  // Home
+  Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
+  // List of Bookings
+  Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
+  // List of Employees
+  Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
+  // List of Upcoming Events
+  Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
 
 // USER
-Route::get('/user-home', [UserController::class, 'home'])->name('user_home');
-Route::get('/user-bookings', [UserController::class, 'bookings'])->name('user_bookings');
-Route::get('/user-map', [UserController::class, 'map'])->name('user_map');
+  // Home
+  Route::get('/user-home', [UserController::class, 'home'])->name('user_home');
+  // List of Bookings
+  Route::get('/user-bookings', [UserController::class, 'bookings'])->name('user_bookings');
+  // Map
+  Route::get('/user-map', [UserController::class, 'map'])->name('user_map');
