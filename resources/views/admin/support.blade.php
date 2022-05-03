@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <sideNav>
         @include('components.sidenavAdmin')
     </sideNav>
@@ -26,5 +25,4 @@
 </div>
 
 </body>
-
 </html>

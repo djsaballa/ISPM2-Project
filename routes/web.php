@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,25 +14,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// LOGIN
+Route::get('/', function () {
+    return view('login');
+});
 
 // ADMIN
-Route::get('/', function () {
-    return view('./admin/home');
-});
-Route::get('/bookings', function () {
-    return view('./admin/list-of-bookings');
-});
-Route::get('/employees', function () {
-    return view('./admin/list-of-employees');
-});
-Route::get('/schedules', function () {
-    return view('./admin/list-of-upcoming-events');
-});
+  // Home
+  Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
+  // List of Bookings
+  Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
+  // List of Employees
+  Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
+  // List of Upcoming Events
+  Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
 
 // USER
-Route::get('/myBookings', function () {
-    return view('./user/list-of-bookings');
-});
-Route::get('/map', function () {
-    return view('./user/map');
-});
+  // Home
+  Route::get('/user-home', [UserController::class, 'home'])->name('user_home');
+  // List of Bookings
+  Route::get('/user-bookings', [UserController::class, 'bookings'])->name('user_bookings');
+  // Map
+  Route::get('/user-map', [UserController::class, 'map'])->name('user_map');

@@ -42,25 +42,25 @@
 
             <li class="nav-item {{ request()->is('/') ? 'active2' : '' }}">
                 <i class="fi fi-br-home {{ request()->is('/') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('admin_home') }}">
                     Home
                 </a>
             </li>
             <li class="nav-item {{ request()->is('bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-list {{ request()->is('bookings') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('bookings') ? 'active' : '' }}" href="bookings">
+                <a class="nav-link {{ request()->is('bookings') ? 'active' : '' }}" href="{{ route('admin_bookings') }}">
                     Bookings
                 </a>
             </li>
             <li class="nav-item {{ request()->is('employees') ? 'active2' : '' }}">
                 <i class="fi fi-br-users {{ request()->is('employees') ? 'active' : '' }}"></i>
-                <a class="nav-link  {{ request()->is('employees') ? 'active' : '' }}" href="employees">
-                    Users
+                <a class="nav-link  {{ request()->is('employees') ? 'active' : '' }}" href="{{ route('admin_employees') }}">
+                    Employees
                 </a>
             </li>
             <li class="nav-item {{ request()->is('schedules') ? 'active2' : '' }}">
                 <i class="fi fi-br-calendar {{ request()->is('schedules') ? 'active' : '' }}"></i>
-                <a class="nav-link  {{ request()->is('schedules') ? 'active' : '' }}" href="schedules">
+                <a class="nav-link  {{ request()->is('schedules') ? 'active' : '' }}" href="{{ route('admin_upcoming_events') }}">
                     Upcoming Schedules
                 </a>
             </li>

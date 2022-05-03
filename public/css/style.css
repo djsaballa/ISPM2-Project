@@ -1,16 +1,33 @@
+html,
 body {
-  margin: 0;
-  position: absolute;
-  background-color: #f7f9ff;
+  height: 100%;
 }
 
-.div-nav {
-  position: fixed;
+body {
+  margin: 0;
   height: 100%;
+  position: relative;
+  background-color: #f7f9ff;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100%;
+  position: relative;
+}
+
+.main-content {
+  margin-bottom: 125px;
+}
+
+/** SIDE NAV **/
+
+.div-nav {
+  top: 0;
   width: 12%;
+  height: 100%;
+  position: fixed;
   background-color: #226acc;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav {
@@ -21,7 +38,6 @@ body {
 }
 
 .nav-item {
-  /* background-color: #42c01c; */
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -51,6 +67,8 @@ body {
   bottom: 0px;
 }
 
+/** HOME BOOKINGS **/
+
 .home-div {
   width: 100%;
   background-color: brown;
@@ -64,8 +82,6 @@ body {
   text-transform: uppercase;
   font-family: "Moon 2.0", sans-serif;
 }
-
-/** HOME BOOKINGS **/
 
 .home-bookings {
   top: 20px;
@@ -154,7 +170,7 @@ body {
 /** UPCOMING EVENTS **/
 
 .upcomingEvents-div {
-  margin-top: 260px;
+  margin-top: 240px;
   height: 200px;
   width: 100%;
   padding-top: 1px;
@@ -381,3 +397,199 @@ h2 {
 
 
 /** END **/
+
+/** EMPLOYEES **/
+
+.employee-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.employee-table {
+  position: relative;
+  margin: 0;
+  width: 1200px;
+  left: 165px;
+  margin-top: 100px;
+  border-spacing: 0px;
+}
+
+.employee-table-header {
+  width: 100%;
+  height: 40px;
+  background-color: #eaeefb;
+}
+.employee-table-header tr th {
+  font-family: "Moon 2.0";
+  font-weight: bold;
+  color: #226acc;
+}
+
+.employee-table-row {
+  height: 40px;
+  font-family: "Moon 2.0", "medium";
+  color: #226acc;
+}
+
+.employee-table-row tr td {
+  border-bottom: 1px solid;
+  border-color: #848fbb;
+}
+
+.search-bar {
+  position: absolute;
+  left: 180px;
+  margin-top: 30px;
+  border-style: none;
+  font-family: "Red Hat Display";
+  color: #848fbb;
+  background-color: #f7f9ff;
+  width: 300px;
+  height: 35px;
+  font-size: 15px;
+  text-align: center;
+
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: 5%;
+}
+
+.search-bar[type="text"] {
+  background-image: url("../images/search.png");
+}
+
+.profile-image-header {
+  width: 40px;
+}
+
+.profile-image {
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  background-image: url("../images/profile-pic.png");
+}
+
+/** FOOTER **/
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 125px; /* Height of the footer */
+  color: white;
+  background: #848fbb;
+  z-index: -1;
+  /* column-count: 3; */
+  padding-left: 10vh;
+}
+
+.footer-header {
+  font-size: 17px;
+  font-family: "Red Hat Display";
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: "Red Hat Display";
+}
+
+.about-company {
+  padding-top: 15px;
+  width: 30%;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Red Hat Display";
+}
+
+.about-pic {
+  float: left;
+  width: 10vh;
+}
+
+.about-text {
+  float: right;
+  margin-top: -10px;
+  color: #132548;
+}
+
+.silya-logo {
+  height: 10vh;
+  width: 10vh;
+}
+
+.links {
+  width: 20%;
+}
+
+.links-list {
+  float: left;
+  padding-left: -100px;
+  left: 0;
+  margin-top: -15px;
+}
+
+.location {
+  width: 20%;
+}
+
+/** MAP **/
+
+.map-header {
+  position: relative;
+  height: 24px;
+  left: 200px;
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  color: #226acc;
+  line-height: 24px;
+}
+
+.map {
+  position: relative;
+  width: 1100px;
+  top: 20px;
+  left: 210px;
+}
+
+.map-option {
+  position: relative;
+  top: 20px;
+  left: 210px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  font-family: "Red Hat Display";
+  font-size: 15px;
+  font-weight: 500;
+  color: #226ACC;
+}
+
+.zoom img {
+  left: 200px;
+  width: 30px;
+}
