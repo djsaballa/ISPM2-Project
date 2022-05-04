@@ -29,7 +29,10 @@
     <img src="{{ asset('images/adminbg.jpg') }}" class="admin-bg">
     <section class="border-clock"></section>
   
-    
+     <!-- </div> -->
+     <footer>
+            @include('components.footer')
+        </footer>
 </body>
 
 

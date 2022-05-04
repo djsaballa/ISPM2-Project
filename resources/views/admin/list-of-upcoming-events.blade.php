@@ -55,7 +55,10 @@
                 </tr>
             </tbody>
         </table>
-
+ <!-- </div> -->
+ <footer>
+            @include('components.footer')
+        </footer>
     </body>
 
     <script src="https://­code.jquery.com/­jquery-3.5.1.slim.min­.js" integrity="sha384-Df­Xdz2htPH0lsSSs5nCTpu­j/­zy4C+OGpamoFVy38MVBnE­+IbbVYUew+OrCXaRkfj"­ crossorigin="anonymo­us"></script>
