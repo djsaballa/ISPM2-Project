@@ -1,4 +1,7 @@
 /** LOGIN **/
+body {
+  background-color: #f7f9ff;
+}
 
 .login {
   padding-right: 25%;
@@ -13,23 +16,25 @@
 .login-logo-container {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .container {
-  background-color: #FFFFFF;
   height: 400px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  border-radius: 25px;
   flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
 }
 
 .container div {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .login-title {
@@ -43,13 +48,11 @@
   margin: 20px;
 }
 
-
 .login-subtitle {
   font-family: "red hat display";
-  font-size:  15px;
-  color:  #848fbb;
+  font-size: 15px;
+  color: #848fbb;
 }
-
 
 /** LOGIN FORM **/
 
@@ -57,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .container form div {
@@ -73,27 +76,31 @@
 }
 
 .container form input {
+  outline: none;
   border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
+  border: 2px solid #226acc;
+  border-radius: 10px;
   height: 35px;
   width: 270px;
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 5%;
-  text-align: center;
+  text-align: left;
+  font-family: "red hat display";
 }
 
-.container form input[type="text"] {
+/* .container form input[type="text"] {
   background-image: url("../images/email.png");
 }
 
 .container form input[type="password"] {
   background-image: url("../images/lock.png");
-}
+} */
 
 .container form input::placeholder {
-  text-align: center;
+  color: #848fbb;
+  text-align: left;
+  font-family: "red hat display";
 }
 
 .container form button {
@@ -101,7 +108,7 @@
   width: 270px;
   height: 35px;
   background-color: #226acc;
-  border-radius: 5px;
+  border-radius: 10px;
   border-style: none;
 }
 
@@ -109,4 +116,35 @@
   font-family: "red hat display";
   font-size: 15px;
   color: #ffffff;
+}
+
+.fi {
+  color: #226acc;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+.inner-addon .fi {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .fi {
+  left: 0px;
+}
+.right-addon .fi {
+  right: 0px;
+}
+
+/* add padding  */
+.left-addon input {
+  padding-left: 30px;
+}
+.right-addon input {
+  padding-right: 30px;
 }
