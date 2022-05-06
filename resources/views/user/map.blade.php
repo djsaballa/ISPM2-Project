@@ -93,5 +93,10 @@
         </span>
     </div>
     <img class="map" src="{{asset('images/map.png')}}">
+
+     <!-- </div> -->
+     <footer>
+            @include('components.footer')
+        </footer>
 </body>
 </html>
