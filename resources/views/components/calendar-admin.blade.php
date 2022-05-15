@@ -1,92 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <meta name="description" content="Random Quote Generator">
-        <meta name="keywords" content="HTML,CSS,JavaScript, Quotes, API">
-        <meta name="author" content="Neha Soni">
-
- <!-- FONTS -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
-
-    <title>AdminHomepage</title>
+    <title>Practice</title>
 
     <style>
-.admin
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    border-radius: 15px;
-    width: 300px;
-    height: 170px;
-    background-color: rgba(255, 255, 255, 0.3);
-    top: 250px;
-    left:1160px;
-    position: absolute;
-
-}
-.fa-quote-left, .fa-quote-right {
-    font-size: 10px;
-    color: rgb(179, 0, 0);
-}
-.quote
-{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-}
-.author 
-{
-
-    margin-top:5px;
-    text-align: right;
-    font-size: 15px;
-    font-style: italic;
-    font-family: cursive;
-}
-hr {
-    margin: 5px 0;
-    width: 10%;
-    border: 1px solid black;
-    background-color: black;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 
-.admin:hover
-{
-    box-shadow: 0 px 5px rgb(230, 0, 0);
-}
-@import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
-
-#currentTime {
-  font-size: 3em;
-  text-align: center;
-  font-family: 'Oswald';
-  font-weight: 200;
-  padding-top: 25px;
-  color: white;
-  background-color:#000000;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
-  width: 380px;
-  height: 80px;
-  position: absolute;
-  top: 80px;
-  left: 1107px;
-}
-#currentTime:hover
-{
-    box-shadow: 0 5px 5px #c9c9c9;
-}
 ol, ul {
 	list-style: none;
 }
@@ -124,32 +63,31 @@ a, a:hover {
 
 .elegant-calencar {
     width: 25em;
-    height: 30em;
+    height: 31em;
     border: 1px solid #c9c9c9;
-    -webkit-box-shadow: 10 10 10 15px #c9c9c9;
+    -webkit-box-shadow: 0 0 5px #c9c9c9;
     box-shadow: 0 0 5px #c9c9c9;
     text-align: center;
     margin: 4em auto;
     position: absolute;
-    top: -20px;
+    top: 30px;
     left:280px ;
-    background-color: white;
 }
 
 #header {
     font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    height: 12em;
+    height: 14em;
     background-color: #2a3246;
     margin-bottom: 1em;
 }
 
 .pre-button, .next-button {
     margin-top: 2em;
-    font-size: 2em;
+    font-size: 3em;
     -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
     cursor: pointer;
-    width: 1.5em;
+    width: 1em;
     height: 1em;
     line-height: 1em;
     color: #e66b6b;
@@ -185,7 +123,7 @@ a, a:hover {
 
 .head-day {
     margin-top: 40px;
-    font-size: 5em;
+    font-size: 8em;
     line-height: 1;
     color: #fff;
 }
@@ -203,13 +141,13 @@ a, a:hover {
 }
 
 #calendar tr {
-    height: 1.5em;
-    line-height: 2em;
+    height: 1em;
+    line-height: 2.1em;
     
 }
 
 thead tr {
-    color: #226acc;
+    color: #e66b6b;
 	font-weight: 700;
 	text-transform: uppercase;
 
@@ -227,15 +165,12 @@ tbody td{
     -webkit-transition:all 0.2s ease-in;
     transition:all 0.2s ease-in;
     
-    
-    
 }
 
 tbody td:hover, .selected {
     color: #fff;
-    background-color: #226acc;
+    background-color: #2a3246;
     border: none;
-    
 }
 
 tbody td:active {
@@ -245,7 +180,7 @@ tbody td:active {
 }
 
 #today {
-    background-color: #2a3246;
+    background-color: #e66b6b;
     color: #fff;
     font-family: serif;
     border-radius: 50%;
@@ -263,12 +198,13 @@ tbody td:active {
     display: block;
     position: absolute;
     right: 0.5em;
+    top: 0.5em;
     z-index: 999;
     color: #fff;
     font-family: serif;
-    font-size: 10px;
     cursor: pointer;
     padding: 0 0.5em;
+    height: 1.5em;
     border: 0.1em solid #fff;
     border-radius: 4px;
     -webkit-transition: all 0.3s ease;
@@ -287,34 +223,12 @@ tbody td:active {
 }
 
 
-    </style>
+
+</style>
 </head>
 
 <body>
-    <sideNav>
-        @include('components.sidenavAdmin')
-    </sideNav>
-
-    <img src="{{ asset('images/puti.jpg') }}" class="admin-bg">
-    
-
-    <div class="admin">
-             <!-- Quote to be Displayed Here -->
-            <h1>
-            <i class="fas fa-quote-left"></i>
-            <span class="quote" id="quote"></span>
-            <i class="fas fa-quote-right"></i>
-            </h1>
-            <!-- Author to be Displayed Here -->
-            <p class="author" id="author"></p>
-
-            <hr/>
-    </div>  
-
-    <h1 id="currentTime"></h1>
-
     <div class="elegant-calencar">
-
        <p id="reset">Silya Cares Calendar</p>
         <div id="header" class="clearfix">
            <div class="pre-button"><</div>
@@ -394,90 +308,8 @@ tbody td:active {
             </tbody>
         </table>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-     <footer>
-            @include('components.footer')
-    </footer>
 </body>
-
 <script>
-const text=document.getElementById("quote");
-const author=document.getElementById("author");
-
-const getNewQuote = async () =>
-{
-   
-    var url="https://type.fit/api/quotes";    
-
-    // fetch the data from api
-    const response=await fetch(url);
-    console.log(typeof response);
-    //convert response to json and store it in quotes array
-    const allQuotes = await response.json();
-
-    // Generates a random number between 0 and the length of the quotes array
-    const indx = Math.floor(Math.random()*allQuotes.length);
-
-    //Store the quote present at the randomly generated index
-    const quote=allQuotes[indx].text;
-
-    //Store the author of the respective quote
-    const auth=allQuotes[indx].author;
-
-    if(auth==null)
-    {
-        author = "Anonymous";
-    }
-
-    //function to dynamically display the quote and the author
-    text.innerHTML=quote;
-    author.innerHTML="~ "+auth;
-
-  
-}
-getNewQuote();
-
-// clock 
-window.onload = function() {
-  clock();  
-    function clock() {
-    var now = new Date();
-    var TwentyFourHour = now.getHours();
-    var hour = now.getHours();
-    var min = now.getMinutes();
-    var sec = now.getSeconds();
-    var mid = 'pm';
-    if (min < 10) {
-      min = "0" + min;
-    }
-    if (hour > 12) {
-      hour = hour - 12;
-    }    
-    if(hour==0){ 
-      hour=12;
-    }
-    if(TwentyFourHour < 12) {
-       mid = 'am';
-    }     
-  document.getElementById('currentTime').innerHTML =     hour+':'+min+':'+sec +' '+mid ;
-    setTimeout(clock, 1000);
-    }
-}
-
-
-
-// calendar
-
 document.addEventListener('DOMContentLoaded', function(){
     var today = new Date(),
         year = today.getFullYear(),
@@ -639,5 +471,7 @@ document.addEventListener('DOMContentLoaded', function(){
     };
     var calendar = new Calendar();       
 }, false);
+
 </script>
+
 </html>
