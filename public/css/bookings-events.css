@@ -1,0 +1,280 @@
+/** UPCOMING EVENTS **/
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.sched-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.sched-table {
+  position: relative;
+  margin: 0;
+  width: 1200px;
+  left: 165px;
+  margin-top: 50px;
+  border-spacing: 0px;
+  /* margin-bottom: 125px; */
+}
+
+.sched-table-header {
+  width: 100%;
+  height: 40px;
+  background-color: #eaeefb;
+}
+.sched-table-header tr th {
+  color: #226acc;
+  padding-left: 1%;
+  text-align: left;
+  font-weight: bold;
+  font-family: "Moon 2.0";
+}
+
+.sched-table-row {
+  height: 40px;
+  color: #226acc;
+  font-family: "Red Hat Display";
+}
+
+.sched-table-row tr td {
+  border-bottom: 1px solid;
+  border-color: #848fbb;
+}
+
+.profile-image-header {
+  width: 40px;
+}
+
+.profile-image {
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  background-image: url("../images/profile-pic.png");
+}
+
+.button {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  background-color: #2269cc;
+  font-family: "Red Hat Display";
+}
+
+.edit2,
+.add2 {
+  background-color: #2269cc;
+}
+
+/** ADD BOOKINGS **/
+
+#employee #desk #date #urreason {
+  width: 100px;
+}
+
+.add-book-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.add-book-box {
+  background-color: #ffffff;
+  position: relative;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  font-family: "Moon 2.0";
+  color: #226acc;
+}
+
+.add-select-desk {
+  display: block;
+  width: 180px;
+  padding: 12px 20px;
+}
+
+.add-top-margin {
+  margin-top: 20px;
+}
+
+/** EDIT BOOKINGS **/
+
+#employee #desk #date #urreason {
+  width: 100px;
+}
+
+.edit-book-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.edit-book-box {
+  margin: auto;
+  width: 70%;
+  padding: 20px;
+  color: #226acc;
+  position: relative;
+  margin-bottom: 125px;
+  border-radius: 20px;
+  background-color: #eaeefb;
+  font-family: "Red Hat Display";
+}
+
+.edit-select-desk {
+  display: block;
+  padding: 12px 20px;
+
+  width: 10%;
+  border-width: 1px;
+  border-color: #1a59b1;
+  border-style: none;
+  background-color: #f6f8ff;
+}
+
+/** ADD UPCOMING EVENTS **/
+
+#event #date {
+  width: 100px;
+}
+
+.add-schedule-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.add-schedule-box {
+  background-color: #eaeefb;
+  position: relative;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  font-family: "Moon 2.0";
+  color: #226acc;
+}
+
+/** EDIT UPCOMING EVENTS **/
+
+#event #date {
+  width: 100px;
+}
+
+.edit-schedule-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.schedule-box-container {
+  margin-top: 50px;
+  margin-bottom: 125px;
+}
+
+.edit-schedule-box {
+  height: 450px;
+  border-radius: 20px;
+  position: relative;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  color: #226acc;
+  background-color: #eaeefb;
+  font-family: "Red Hat Display";
+}
+
+#event-title {
+  width: 50%;
+}
+
+#desc {
+  height: 50%;
+  width: 50%;
+}
+
+/**Add-Edit form style**/
+
+input {
+  background-color: #fff;
+  border-style: none;
+  margin: 8px 0;
+  display: block;
+}
+
+/** END **/

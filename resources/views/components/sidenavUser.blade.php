@@ -27,7 +27,7 @@
         }
     </style>
 
-    <title>Document</title>
+    <!-- <title>Side</title> -->
 </head>
 
 <body>
@@ -36,38 +36,45 @@
 
 
         <!-- LOGO -->
-        <a href="/"> <img src="{{ asset('images/logo135.png') }}" class="logo" alt="logo"></a>
+        <a href="/user-home"> <img src="{{ asset('images/E_White.svg') }}" class="logo" alt="logo"></a>
 
-        <ul class="nav">
+        <ul class="navv">
 
 
-            <li class="nav-item {{ request()->is('/') ? 'active2' : '' }}">
-                <i class="fi fi-br-home {{ request()->is('/') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('user_home') }}">
+            <li class="navv-item {{ request()->is('user_home') ? 'active2' : '' }}">
+                <i class="fi fi-br-home {{ request()->is('user_home') ? 'active' : '' }}"></i>
+                <a class="navv-link {{ request()->is('user_home') ? 'active' : '' }}" href="{{ route('user_home') }}">
                     Home
                 </a>
             </li>
 
-            <li class="nav-item {{ request()->is('map') ? 'active2' : '' }}">
-                <i class="fi fi-br-map {{ request()->is('map') ? 'active' : '' }}"></i>
-                <a class="nav-link  {{ request()->is('map') ? 'active' : '' }}" href="{{ route('user_map') }}">
+            <li class="navv-item {{ request()->is('user_map') ? 'active2' : '' }}">
+                <i class="fi fi-br-map {{ request()->is('user_map') ? 'active' : '' }}"></i>
+                <a class="navv-link  {{ request()->is('user_map') ? 'active' : '' }}" href="{{ route('user_map') }}">
                     Map
                 </a>
             </li>
 
-            <li class="nav-item {{ request()->is('myBookings') ? 'active2' : '' }}">
-                <i class="fi fi-br-list {{ request()->is('myBookings') ? 'active' : '' }}"></i>
-                <a class="nav-link {{ request()->is('myBookings') ? 'active' : '' }}" href="{{ route('user_bookings') }}">
+            <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
+                <i class="fi fi-br-list {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings') }}">
                     Bookings
+                </a>
+            </li>
+
+            <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
+                <i class="fi fi-br-interrogation {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings') }}">
+                    Support
                 </a>
             </li>
 
 
 
             <!-- LOGOUT -->
-            <li class="nav-item nav-last">
+            <li class="navv-item nav-last">
                 <i class="fi fi-br-sign-out-alt"></i>
-                <a class="nav-link " href="#">
+                <a class="navv-link " href="#">
                     Logout
                 </a>
             </li>
