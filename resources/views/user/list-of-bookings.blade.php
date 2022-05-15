@@ -5,66 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ICONS -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-
-
-    <title>eMachine | My Bookings</title>
+    <title>Document</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <sideNav>
-            @include('components.sidenavUser')
-        </sideNav>
+    <sideNav>
+        @include('components.sidenavUser')
+    </sideNav>
 
-        <h1 class="bookings-header">MY BOOKINGS</h1>
+    <h1 class="employee-header">MY BOOKINGS</h1>
 
-        <div class="bookings-table-container">
-            <table class="bookings-table" id="bookings">
-                <thead class="bookings-table-header">
-                    <tr>
-                        <th class="profile-image-header">Date</th>
-                        <th class="profile-image-header">Desk Number</th>
-                        <th class="profile-image-header "> <a href="/user-map"> <button class="bookings-btn" type="button">Add</button></a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bookings-table-row">
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>April 25, 2022</td>
-                        <td>Desk 109</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 12, 2022</td>
-                        <td>Desk 19</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 22, 2022</td>
-                        <td>Desk 09</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 25, 2022</td>
-                        <td>Desk 112</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <footer>
-            @include('components.footer')
-        </footer>
-    </div>
+    <input class="search-bar" type="text" name="searchbar" id="searchbar" placeholder="search people by name or email">
+
+    <table class="employee-table" id="bookings">
+        <thead class="employee-table-header">
+            <tr>
+                <th class="profile-image-header"></th>
+                <th>Date</th>
+                <th>Desk Number</th>
+
+        </thead>
+        <tbody class="employee-table-row">
+            <tr>
+                <td class="profile-image"></td>
+                <td>April 25, 2022</td>
+                <td>Desk 109</td>
+
+        </tbody>
+    </table>
 
 </body>
 
@@ -76,5 +45,4 @@
         jQuery('#bookings').DataTable();
     });
 </script>
-
-</html>
+< /html>

@@ -32,39 +32,43 @@
 <body>
 
     <div class="div-nav">
-        <!-- LOGO -->
-        <a href="/admin-home"> <img src="{{ asset('images/logo135.png') }}" class="logo" alt="logo"></a>
 
-        <ul class="navv">
-            <li class="navv-item {{ request()->is('/') ? 'active2' : '' }}">
+
+        <!-- LOGO -->
+        <a href="/"> <img src="{{ asset('images/logo135.png') }}" class="logo" alt="logo"></a>
+
+        <ul class="nav">
+
+
+            <li class="nav-item {{ request()->is('/') ? 'active2' : '' }}">
                 <i class="fi fi-br-home {{ request()->is('/') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('admin_home') }}">
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('admin_home') }}">
                     Home
                 </a>
             </li>
-            <li class="navv-item {{ request()->is('bookings') ? 'active2' : '' }}">
+            <li class="nav-item {{ request()->is('bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-list {{ request()->is('bookings') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('bookings') ? 'active' : '' }}" href="{{ route('admin_bookings') }}">
+                <a class="nav-link {{ request()->is('bookings') ? 'active' : '' }}" href="{{ route('admin_bookings') }}">
                     Bookings
                 </a>
             </li>
-            <li class="navv-item {{ request()->is('employees') ? 'active2' : '' }}">
+            <li class="nav-item {{ request()->is('employees') ? 'active2' : '' }}">
                 <i class="fi fi-br-users {{ request()->is('employees') ? 'active' : '' }}"></i>
-                <a class="navv-link  {{ request()->is('employees') ? 'active' : '' }}" href="{{ route('admin_employees') }}">
+                <a class="nav-link  {{ request()->is('employees') ? 'active' : '' }}" href="{{ route('admin_employees') }}">
                     Employees
                 </a>
             </li>
-            <li class="navv-item {{ request()->is('schedules') ? 'active2' : '' }}">
+            <li class="nav-item {{ request()->is('schedules') ? 'active2' : '' }}">
                 <i class="fi fi-br-calendar {{ request()->is('schedules') ? 'active' : '' }}"></i>
-                <a class="navv-link  {{ request()->is('schedules') ? 'active' : '' }}" href="{{ route('admin_upcoming_events') }}">
+                <a class="nav-link  {{ request()->is('schedules') ? 'active' : '' }}" href="{{ route('admin_upcoming_events') }}">
                     Upcoming Schedules
                 </a>
             </li>
 
             <!-- LOGOUT -->
-            <li class="navv-item nav-last">
+            <li class="nav-item nav-last">
                 <i class="fi fi-br-sign-out-alt"></i>
-                <a class="navv-link " href="#">
+                <a class="nav-link " href="#">
                     Logout
                 </a>
             </li>

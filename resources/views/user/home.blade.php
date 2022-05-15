@@ -10,10 +10,7 @@
 
     <script src="https://kit.fontawesome.com/0000000000.js" crossorigin="anonymous"></script>
 
-    <!-- FAVICON -->
-    <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
-
-    <title>eMachine | Home</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -44,9 +41,10 @@
             <div class="home-bookings">
                 <div class="home-bookings-circle">
                     <h3 class="home-booking-desk">Desk</h3>
-                    <p class="home-desk-num">106</p>
+                    <p class="desk-num">106</p>
                     <h3 class="home-booking-mon">APR</h3>
                     <p class="home-booking-date">07</p>
+
                     <img src="{{ asset('images/Desk.svg') }}" class="circle-desk">
                 </div>
                 <div class="circle-div"></div>
@@ -56,7 +54,10 @@
                 <h1 class="upcomingHeader">
                     Upcoming Events
                 </h1>
+
                 <div class="event-col">
+
+
                     <div class="event-calendar">
                         <!-- <img src="{{ asset('images/calendar.png') }}" class="calendar" alt="calen"> -->
                         <img src="{{ asset('images/calendar.svg') }}" class="calendar">
@@ -74,9 +75,8 @@
                             sed do eiusmod tempor”
                         </p>
                     </div>
+
                 </div>
-            </div>
-            <div class="home-calendar">
 
             </div>
         </div>
