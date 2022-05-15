@@ -1,4 +1,8 @@
 html,
+body {
+  margin: 0;
+}
+
 
 body {
   margin: 0;
@@ -8,6 +12,8 @@ body {
 .container {
   min-height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
@@ -24,20 +30,20 @@ body {
   background-color: #226acc;
 }
 
-.nav {
+.navv {
   width: 164px;
   padding-top: 10px;
   margin-left: -40px;
   list-style-type: none;
 }
 
-.nav-item {
+.navv-item {
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.nav-link {
+.navv-link {
   color: #f7f9ff;
   font-size: 18px;
   font-weight: 600;
@@ -51,7 +57,9 @@ body {
 }
 
 .logo {
-  margin-left: 10px;
+  height: 20vh;
+  width: 20vh;
+  margin-left: 20px;
 }
 
 .nav-last {
@@ -63,11 +71,6 @@ body {
 
 /** HOME BOOKINGS **/
 
-.home-div {
-  width: 100%;
-  background-color: brown;
-}
-
 .home-header {
   color: #226acc;
   font-size: 50px;
@@ -78,8 +81,10 @@ body {
 }
 
 .home-bookings {
-  top: 20px;
-  position: relative;
+  margin-left: 30vh;
+  width: 180px;
+  top: 230px;
+  position: absolute;
 }
 
 .booking-header {
@@ -87,28 +92,28 @@ body {
   width: 100%;
   height: 24px;
   left: 180px;
-
   font-family: "Moon 2.0";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   /* identical to box height */
-
   color: #226acc;
 }
 
 .home-booking-desk {
-  left: 225px;
+  top: 0;
+  left: 35%;
   color: #ffffff;
   font-size: 18px;
   font-weight: 400;
-  position: absolute;
+  /* position: absolute; */
   font-family: "Red Hat Display";
 }
 
-.desk-num {
-  left: 200px;
+.home-desk-num {
+  top: 0;
+  left: 10%;
   font-size: 40px;
   margin-top: 30px;
   font-weight: 700;
@@ -118,7 +123,8 @@ body {
 }
 
 .home-booking-mon {
-  left: 275px;
+  top: 0;
+  left: 65%;
   color: #ffffff;
   font-size: 18px;
   font-weight: 400;
@@ -127,7 +133,8 @@ body {
 }
 
 .home-booking-date {
-  left: 275px;
+  top: 0;
+  left: 53%;
   font-size: 40px;
   margin-top: 30px;
   font-weight: 700;
@@ -137,7 +144,7 @@ body {
 }
 
 .home-bookings-circle {
-  margin-left: 180px;
+  /* margin-left: 180px; */
   width: 180px;
   height: 180px;
   -webkit-border-radius: 100%;
@@ -147,8 +154,9 @@ body {
 }
 
 .circle-desk {
-  margin-top: 90px;
-  height: 70px;
+  /* position: relative; */
+  padding-top: 90px;
+  height: 80px;
   width: 100%;
 }
 
@@ -156,15 +164,19 @@ body {
   margin-top: -170px;
   width: 4px;
   height: 70px;
-  margin-left: 269px;
+  margin-left: 88px;
   background: #ffffff;
   position: relative;
 }
 
 /** UPCOMING EVENTS **/
 
+.event-col {
+  margin: 20px 0px 0px 30px;
+}
+
 .upcomingEvents-div {
-  margin-top: 240px;
+  margin-top: 280px;
   height: 200px;
   width: 100%;
   padding-top: 1px;
@@ -177,10 +189,6 @@ body {
   color: #226acc;
   font-size: 18px;
   font-family: "Moon 2.0", sans-serif;
-}
-
-.event-col {
-  margin: 20px 0px 0px 30px;
 }
 
 .event-title {
@@ -250,6 +258,14 @@ body {
   font-family: "Red Hat Display";
 }
 
+.home-calendar {
+  margin-top: 100px;
+  height: 200px;
+  width: 30%;
+  margin-left: 15%;
+  background-color: #647dd4;
+}
+
 /** Admin-homepage **/
 
 .admin-title {
@@ -260,16 +276,15 @@ body {
   color: #226acc;
   position: absolute;
   font-family: "Red Hat Display";
-
 }
 
 .admin-bg {
-
   margin-left: 175px;
   width: 1350px;
   height: 727.5px;
   object-fit: cover;
 }
+  
 
 /** Admin Support **/
 .huy {
@@ -297,24 +312,24 @@ body {
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #00B4CC;
+  border: 3px solid #00b4cc;
   border-right: none;
   padding: 5px;
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9DBFAF;
+  color: #9dbfaf;
 }
 
-.searchTerm:focus{
-  color: #00B4CC;
+.searchTerm:focus {
+  color: #00b4cc;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  border: 1px solid #00b4cc;
+  background: #00b4cc;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -323,12 +338,11 @@ body {
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
+.wrap {
   width: 100%;
   position: absolute;
   transform: translate(-50%, -50%);
 }
-
 
 /** END **/
 
@@ -372,16 +386,17 @@ body {
 
 .employee-table-row {
   height: 40px;
-  font-family: "Moon 2.0", "medium";
   color: #226acc;
 }
 
 .employee-table-row tr td {
   border-bottom: 1px solid;
   border-color: #848fbb;
+  font-family: "Red Hat Display";
 }
 
 .search-bar {
+  outline: none;
   position: absolute;
   left: 180px;
   margin-top: 30px;
@@ -392,7 +407,7 @@ body {
   width: 300px;
   height: 35px;
   font-size: 15px;
-  text-align: center;
+  text-align: left;
 
   background-size: 30px 30px;
   background-repeat: no-repeat;
@@ -421,7 +436,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: relative;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
   height: 125px; /* Height of the footer */
@@ -430,6 +445,7 @@ body {
   z-index: -1;
   /* column-count: 3; */
   padding-left: 10vh;
+  margin-top: auto;
 }
 
 .footer-header {
@@ -504,26 +520,274 @@ a {
 .map {
   position: relative;
   width: 1100px;
-  top: 20px;
   left: 210px;
 }
 
 .map-option {
-  position: relative;
-  top: 20px;
-  left: 210px;
   display: flex;
-  justify-content: space-between;
 }
 
 .date {
   font-family: "Red Hat Display";
   font-size: 15px;
   font-weight: 500;
-  color: #226ACC;
+  color: #226acc;
 }
 
-.zoom img {
+.map-booking-container {
+  border-radius: 20px;
+  padding: 10px;
+  top: 20px;
+  height: 80vh;
+  width: 80%;
   left: 200px;
-  width: 30px;
+  font-size: 13px;
+  position: relative;
+  margin-bottom: 125px;
+  /* background-color: #c2d7f0; */
+
+  color: #226acc;
+  background-color: #eaeefb;
+  font-family: "Red Hat Display";
 }
+
+.map-booking-header {
+  top: 0;
+  color: #226acc;
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Moon 2.0";
+}
+
+input {
+  outline: none;
+  font-family: "Red Hat Display";
+}
+
+.form-title {
+  font-size: 15px;
+}
+
+.desk-dropdown {
+  width: 10%;
+  border-width: 1px;
+  border-color: #1a59b1;
+  border-style: none;
+  background-color: #f6f8ff;
+}
+
+.form-title-input {
+  margin-bottom: 10px;
+}
+
+.form-input {
+  /* width: 50%; */
+  border-style: none;
+  height: 100px;
+}
+
+/** USER BOOKINGS—START **/
+
+.bookings-header {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  left: 200px;
+
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  /* identical to box height */
+
+  color: #226acc;
+  /**DIFFERENCE**/
+  line-height: 24px;
+}
+
+.bookings-table-container {
+  margin-bottom: 125px;
+}
+
+.bookings-table {
+  position: relative;
+  width: 1200px;
+  left: 165px;
+  margin-top: 50px;
+  border-spacing: 0px;
+}
+
+.bookings-table-header {
+  width: 100%;
+  height: 40px;
+  background-color: #eaeefb;
+}
+.bookings-table-header tr th {
+  color: #226acc;
+  padding-left: 1%;
+  text-align: left;
+  font-weight: bold;
+  font-family: "Moon 2.0";
+}
+
+.bookings-table-row {
+  height: 40px;
+  color: #226acc;
+}
+
+.bookings-table-row tr td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1%;
+  border-bottom: 1px solid;
+  border-color: #848fbb;
+  font-family: "Red Hat Display";
+}
+
+.bookings-search-bar {
+  outline: none;
+  position: absolute;
+  left: 180px;
+  margin-top: 30px;
+  border-style: none;
+  color: #848fbb;
+  /* width: 300px; */
+  height: 35px;
+  font-size: 15px;
+  text-align: left;
+  background-color: #f7f9ff;
+  font-family: "Red Hat Display";
+}
+
+.bookings-button-container {
+  margin-top: 35px;
+  position: absolute;
+  right: 3px;
+}
+
+.bookings-btn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  background-color: #226acc;
+  font-family: "Red Hat Display";
+}
+
+.bookings-cncl-btn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  background-color: #2269ccb0;
+  font-family: "Red Hat Display";
+}
+
+.profile-image-header {
+  width: 10px;
+}
+
+.profile-image {
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  background-image: url("../images/profile-pic.png");
+}
+
+.fi-br-search {
+  color: #848fbb;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style icon */
+.inner-addon .fi {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .fi {
+  left: 0px;
+}
+.right-addon .fi {
+  right: 0px;
+}
+
+/* add padding  */
+.left-addon input {
+  padding-left: 30px;
+}
+.right-addon input {
+  padding-right: 30px;
+}
+
+/** ADD BOOKINGS **/
+
+/* Style inputs with type="text", select elements and textareas */
+input[type="text"],
+select,
+textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  /* border: 1px solid #ccc; Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  font-family: "Red Hat Display";
+}
+
+/* Style the submit button with a specific background color etc */
+input[type="submit"] {
+  background-color: #226acc;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type="submit"]:hover {
+  background-color: #1a59b1;
+}
+
+/* Add a background color and some padding around the form */
+.add-bookings-container {
+  margin-left: 20%;
+  font-weight: 600;
+  color: #226acc;
+  position: absolute;
+  width: 70%;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 125px;
+  background-color: #eaeefb;
+  font-family: "Red Hat Display";
+}
+
+/* .dataTables_length {
+  color: #226acc;
+  font-size: 12px;
+  width: 10%;
+  margin-left: 200px;
+  font-family: "Red Hat Display";
+}
+
+.dataTables_length select {
+  border-color: #1a59b1;
+  padding: 0px;
+  background-color: #f6f8ff;
+} */
