@@ -41,16 +41,18 @@
                 YOUR BOOKINGS
             </div>
 
+            @foreach ($user_bookings as $user_booking)
             <div class="home-bookings">
                 <div class="home-bookings-circle">
                     <h3 class="home-booking-desk">Desk</h3>
-                    <p class="home-desk-num">106</p>
+                    <p class="home-desk-num">{{ $user_booking->desk_id }}</p>
                     <h3 class="home-booking-mon">APR</h3>
-                    <p class="home-booking-date">07</p>
+                    <p class="home-booking-date">{{ $user_booking->date }}</p>
                     <img src="{{ asset('images/Desk.svg') }}" class="circle-desk">
                 </div>
                 <div class="circle-div"></div>
             </div>
+            @endforeach
 
             <div class="upcomingEvents-div">
                 <h1 class="upcomingHeader">

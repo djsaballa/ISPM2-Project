@@ -64,7 +64,7 @@
             <!-- LOGOUT -->
             <li class="navv-item nav-last">
                 <i class="fi fi-br-sign-out-alt"></i>
-                <a class="navv-link " href="#">
+                <a class="navv-link " href="{{ route('login') }}">
                     Logout
                 </a>
             </li>

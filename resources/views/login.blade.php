@@ -22,17 +22,21 @@
                 <text class="login-title">Welcome</text>
                 <text class="login-subtitle">Reserve your seat</text>
             </div>
-            <form>
+            <form method="POST" action="{{ route('login_auth') }}"> 
                 @csrf
                 <div class="inner-addon left-addon">
                     <i class="fi fi-sr-envelope"></i>
-                    <input type="text" placeholder="Email" id="email">
+                    <input type="text" placeholder="Email" id="email" name="email">
                 </div>
+                <span class="error" style="color: red;">@error('email'){{ $message }} @enderror</span>
+                <span class="error" style="color: red;">{{ Session::get('failEmail') }}</span>
                 <div class="inner-addon left-addon">
                     <i class="fi fi-sr-lock"></i>
-                    <input type="password" placeholder="Password" id="password">
+                    <input type="password" placeholder="Password" id="password" name="password">
                 </div>
-                <button type="button" onclick="alert('Hello World!')"><text>Sign in</text></button>
+                <span class="error" style="color: red;">@error('password'){{ $message }} @enderror</span>
+                <span class="error" style="color: red;">{{ Session::get('failPass') }}</span>
+                <button type="submit"><text>Sign in</text></button>
             </form>
         </div>
     </div>

@@ -12,13 +12,27 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public static function newUser($data)
+    {
+        $user = new static;
+        $user->fill($data);
+        if ($user->save()) {
+            return $user;
+        }
+        return false;
+    }
+
     protected $fillable = [
         'first_name',
         'last_name',
         'email',
         'password',
         'phone_number',
-        'department',
+        'department'
     ];
-    
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

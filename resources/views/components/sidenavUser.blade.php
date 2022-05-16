@@ -43,28 +43,28 @@
 
             <li class="navv-item {{ request()->is('user_home') ? 'active2' : '' }}">
                 <i class="fi fi-br-home {{ request()->is('user_home') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('user_home') ? 'active' : '' }}" href="{{ route('user_home') }}">
+                <a class="navv-link {{ request()->is('user_home') ? 'active' : '' }}" href="{{ route('user_home', $user_info->id) }}">
                     Home
                 </a>
             </li>
 
             <li class="navv-item {{ request()->is('user_map') ? 'active2' : '' }}">
                 <i class="fi fi-br-map {{ request()->is('user_map') ? 'active' : '' }}"></i>
-                <a class="navv-link  {{ request()->is('user_map') ? 'active' : '' }}" href="{{ route('user_map') }}">
+                <a class="navv-link  {{ request()->is('user_map') ? 'active' : '' }}" href="{{ route('user_map', $user_info->id) }}">
                     Map
                 </a>
             </li>
 
             <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-list {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings') }}">
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings', $user_info->id) }}">
                     Bookings
                 </a>
             </li>
 
             <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-interrogation {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings') }}">
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings', $user_info->id) }}">
                     Support
                 </a>
             </li>
@@ -74,7 +74,7 @@
             <!-- LOGOUT -->
             <li class="navv-item nav-last">
                 <i class="fi fi-br-sign-out-alt"></i>
-                <a class="navv-link " href="#">
+                <a class="navv-link " href="{{ route('login') }}">
                     Logout
                 </a>
             </li>
