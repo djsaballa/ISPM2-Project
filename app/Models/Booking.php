@@ -29,4 +29,14 @@ class Booking extends Model
     {
         return $this->id;
     }
+
+    public function getMonth($date)
+    {
+        return date('M', $date);
+    }
+
+    public function getDay($date)
+    {
+        return date('d', $date);
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Desk;
+use App\Models\UpcomingEvent;
 
 class AdminController extends Controller
 {

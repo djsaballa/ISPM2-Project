@@ -46,7 +46,7 @@
                 <div class="home-bookings-circle">
                     <h3 class="home-booking-desk">Desk</h3>
                     <p class="home-desk-num">{{ $user_booking->desk_id }}</p>
-                    <h3 class="home-booking-mon">APR</h3>
+                    <h3 class="home-booking-mon">Date</h3>
                     <p class="home-booking-date">{{ $user_booking->date }}</p>
                     <img src="{{ asset('images/Desk.svg') }}" class="circle-desk">
                 </div>
@@ -58,25 +58,25 @@
                 <h1 class="upcomingHeader">
                     Upcoming Events
                 </h1>
+                @foreach ($upcoming_events as $upcoming_event)
                 <div class="event-col">
                     <div class="event-calendar">
                         <!-- <img src="{{ asset('images/calendar.png') }}" class="calendar" alt="calen"> -->
                         <img src="{{ asset('images/calendar.svg') }}" class="calendar">
-                        <div class="calend-mon">APR</div>
-                        <div class="calend-date">31</div>
+                        <div class="calend-mon">Date</div>
+                        <div class="calend-date">{{ $upcoming_event->date }}</div>
                     </div>
 
                     <div class="event-info">
                         <h3 class="event-title">
-                            eMachine Foundation Day
+                        {{ $upcoming_event->title }}
                         </h3>
-                        <p class="event-time">9:00 a.m. - 5:00 p.m.</p>
-                        <p class="event-desc">"Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit,
-                            sed do eiusmod tempor”
+                        <p class="event-time">{{ $upcoming_event->start_time }} - {{ $upcoming_event->end_time }}</p>
+                        <p class="event-desc">{{ $upcoming_event->description }}
                         </p>
                     </div>
                 </div>
+                @endforeach
             </div>
             <div class="home-calendar">
 
@@ -91,3 +91,8 @@
 </body>
 
 </html>
+
+INSERT INTO upcoming_events (title, description, date)
+VALUES ('Ninoy Aquino Day', 'Non-working holiday', '2022-05-30';
+
+

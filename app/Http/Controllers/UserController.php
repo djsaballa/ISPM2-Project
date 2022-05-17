@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Desk;
+use App\Models\UpcomingEvent;
 
 class UserController extends Controller
 {
@@ -13,8 +14,9 @@ class UserController extends Controller
     {
         $user_info = User::where('id', '=', $user_id)->first();
         $user_bookings = Booking::where('user_id', $user_id)->get();
+        $upcoming_events = UpcomingEvent::all();
 
-        return view(('user.home'), compact('user_info', 'user_bookings'));
+        return view(('user.home'), compact('user_info', 'user_bookings', 'upcoming_events'));
     }
 
     public function bookings(Request $request)
