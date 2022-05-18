@@ -68,9 +68,12 @@ class AdminController extends Controller
         return view('admin.edit-bookings');
     }
 
+    // LIST OF EMPLOYEES
     public function employees(Request $request)
     {
-        return view('admin.list-of-employees');
+        $employees = User::all();
+
+        return view(('admin.list-of-employees'), compact('employees'));
     }
 
     public function upcomingEvents(Request $request)
