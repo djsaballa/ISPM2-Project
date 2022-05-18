@@ -76,6 +76,11 @@ class AdminController extends Controller
         return view(('admin.list-of-employees'), compact('employees'));
     }
 
+    public function changePassword(Request $request)
+    {
+        return view('admin.change-password-employees');
+    }
+
     public function upcomingEvents(Request $request)
     {
         return view('admin.list-of-upcoming-events');
