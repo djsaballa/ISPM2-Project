@@ -66,7 +66,7 @@ class AdminController extends Controller
         return view('admin.add-bookings');
     }
 
-    public function editBookings(Request $request)
+    public function editBookings($booking_id)
     {
         return view('admin.edit-bookings');
     }
@@ -79,7 +79,7 @@ class AdminController extends Controller
         return view(('admin.list-of-employees'), compact('employees'));
     }
 
-    public function changePassword(Request $request)
+    public function changePassword($user_id)
     {
         return view('admin.change-password-employees');
     }
@@ -97,7 +97,7 @@ class AdminController extends Controller
         return view('admin.add-schedules');
     }
 
-    public function editSchedules(Request $request)
+    public function editSchedules($event_id)
     {
         return view('admin.edit-schedules');
     }

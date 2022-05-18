@@ -24,8 +24,9 @@ class UserController extends Controller
     public function bookings($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
+        $bookings = Booking::where('user_id', '=', $user_id)->get();
 
-        return view(('user.list-of-bookings'), compact('user_info'));
+        return view(('user.list-of-bookings'), compact('user_info', 'bookings'));
     }
 
     // MAP

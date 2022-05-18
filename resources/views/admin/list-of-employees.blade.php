@@ -41,7 +41,7 @@
                 <td>{{ $employee->password }}</td>
                 <td>{{ $employee->phone_number }}</td>
                 <th>
-                    <a href=" {{ route('admin_change_password'), $employee->id }} ">
+                    <a href="{{ route('admin_change_passwords', $employee->id) }}">
                         <button>Change Password</button>
                     </a>
                 </th>

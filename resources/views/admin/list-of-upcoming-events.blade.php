@@ -47,7 +47,7 @@
                     <td>{{ $upcoming_event->start_time }}</td>
                     <td>{{ $upcoming_event->end_time }}</td>
                     <td>
-                        <a href="{{ route('admin_edit_schedules'), $upcoming_event->id }}">
+                        <a href="{{ route('admin_edit_schedules', $upcoming_event->id) }}">
                             <button class="button edit2">Edit</button>
                         </a>
                         <a onClick="">

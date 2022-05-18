@@ -29,35 +29,26 @@
                     <tr>
                         <th class="profile-image-header">Date</th>
                         <th class="profile-image-header">Desk Number</th>
-                        <th class="profile-image-header "> <a href="/user-map"> <button class="bookings-btn" type="button">Add</button></a>
+                        <th class="profile-image-header "> 
+                            <a href="{{ route('user_map', $user_info->id) }}"> 
+                                <button class="bookings-btn" type="button">Add</button>
+                            </a>
                         </th>
                     </tr>
                 </thead>
                 <tbody class="bookings-table-row">
+                    @foreach($bookings as $booking)
                     <tr>
                         <!-- <td class="profile-image"></td> -->
-                        <td>April 25, 2022</td>
-                        <td>Desk 109</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
+                        <td>{{ $booking->date }}</td>
+                        <td>Desk {{ $booking->getSeatNumber($booking->desk_id) }}</td>
+                        <td>
+                            <a onClick="">
+                                <button type="button" class="bookings-cncl-btn">Cancel</button>
+                            </a>
+                        </td>
                     </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 12, 2022</td>
-                        <td>Desk 19</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 22, 2022</td>
-                        <td>Desk 09</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
-                    <tr>
-                        <!-- <td class="profile-image"></td> -->
-                        <td>May 25, 2022</td>
-                        <td>Desk 112</td>
-                        <td><button type="button" class="bookings-cncl-btn">Cancel</button></td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

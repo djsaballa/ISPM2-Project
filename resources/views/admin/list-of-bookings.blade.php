@@ -35,7 +35,7 @@
                         <td>Desk {{ $booking->getSeatNumber($booking->desk_id) }}</td>
                         <td>{{ $booking->date }}</td>
                         <td>
-                            <a href="{{ route('admin_edit_bookings'), $booking->id }}">
+                            <a href="{{ route('admin_edit_bookings', $booking->id) }}">
                                 <button type="button" class="bookings-btn">Edit</button>
                             </a>
                             <a onClick="">
