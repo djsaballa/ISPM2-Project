@@ -69,7 +69,7 @@
 
                     <div class="event-info">
                         <h3 class="event-title">
-                        {{ $upcoming_event->title }}
+                            {{ $upcoming_event->title }}
                         </h3>
                         <p class="event-time">{{ $upcoming_event->start_time }} - {{ $upcoming_event->end_time }}</p>
                         <p class="event-desc">{{ $upcoming_event->description }}
@@ -91,8 +91,3 @@
 </body>
 
 </html>
-
-INSERT INTO upcoming_events (title, description, date)
-VALUES ('Ninoy Aquino Day', 'Non-working holiday', '2022-05-30';
-
-

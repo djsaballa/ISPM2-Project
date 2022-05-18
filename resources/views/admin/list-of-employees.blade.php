@@ -32,7 +32,7 @@
             <tr>
         </thead>
         <tbody class="employee-table-row">
-            @foreach {{ $employees as $employee }}
+            @foreach ($employees as $employee) 
             <tr>
                 <td class="profile-image"></td>
                 <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
