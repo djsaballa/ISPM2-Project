@@ -32,16 +32,18 @@
             <tr>
         </thead>
         <tbody class="employee-table-row">
-            @foreach ($employees as $employee) 
+            @foreach($employees as $employee) 
             <tr>
                 <td class="profile-image"></td>
-                <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
+                <td>{{ $employee->getFullName($employee->id) }}</td>
                 <td>{{ $employee->department }}</td>
                 <td>{{ $employee->email }}</td>
                 <td>{{ $employee->password }}</td>
                 <td>{{ $employee->phone_number }}</td>
                 <th>
-                    <button>Change Password</button>
+                    <a href=" {{ route('admin_change_password'), $employee->id }} ">
+                        <button>Change Password</button>
+                    </a>
                 </th>
             </tr>
             @endforeach

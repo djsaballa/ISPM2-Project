@@ -53,9 +53,12 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
+    // LIST OF BOOKINGS
     public function bookings(Request $request)
     {
-        return view('admin.list-of-bookings');
+        $bookings = Booking::all();
+
+        return view(('admin.list-of-bookings'), compact('bookings'));
     }
 
     public function addBookings(Request $request)
@@ -81,9 +84,12 @@ class AdminController extends Controller
         return view('admin.change-password-employees');
     }
 
+    // LIST OF UPCOMING EVENTS
     public function upcomingEvents(Request $request)
     {
-        return view('admin.list-of-upcoming-events');
+        $upcoming_events = UpcomingEvent::all();
+
+        return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
     }
 
     public function addSchedules(Request $request)

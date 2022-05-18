@@ -26,20 +26,20 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
   Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
   // LIST OF BOOKINGS
   Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
-    // ADD BOOKINGS
-    Route::get('/admin-add-bookings', [AdminController::class, 'addBookings'])->name('admin_add_bookings');
-    // EDIT BOOKINGS
-    Route::get('/admin-edit-bookings', [AdminController::class, 'editBookings'])->name('admin_edit_bookings');
+      // ADD BOOKINGS
+      Route::get('/admin-add-bookings', [AdminController::class, 'addBookings'])->name('admin_add_bookings');
+      // EDIT BOOKINGS
+      Route::get('/admin-edit-bookings', [AdminController::class, 'editBookings'])->name('admin_edit_bookings');
   // LIST OF EMPLOYEES
   Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
-    // CHANGE PASSWORD
-    Route::get('/admin-change-passwords', [AdminController::class, 'changePassword'])->name('admin_change_passwords');
+      // CHANGE PASSWORD
+      Route::get('/admin-change-passwords', [AdminController::class, 'changePassword'])->name('admin_change_password');
   // LIST OF UPCOMING EVENTS
   Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
-    // ADD UPCOMING EVENTS
-    Route::get('/admin-add-schedules', [AdminController::class, 'addSchedules'])->name('admin_add_schedules');
-    // EDIT UPCOMING EVENTS
-    Route::get('/admin-edit-schedules', [AdminController::class, 'editSchedules'])->name('admin_edit_schedules');
+      // ADD UPCOMING EVENTS
+      Route::get('/admin-add-schedules', [AdminController::class, 'addSchedules'])->name('admin_add_schedules');
+      // EDIT UPCOMING EVENTS
+      Route::get('/admin-edit-schedules', [AdminController::class, 'editSchedules'])->name('admin_edit_schedules');
 
 // USER
   // HOME

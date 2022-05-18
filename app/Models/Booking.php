@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Desk;
 
 class Booking extends Model
 {
@@ -25,18 +27,27 @@ class Booking extends Model
         'date'
     ];
 
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class);
+    }
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function getMonth($date)
+    public function getUserFullName($user_id)
     {
-        return date('M', $date);
+        $userFullName = User::getFullName($user_id);
+
+        return $userFullName;
     }
 
-    public function getDay($date)
+    public function getSeatNumber($desk_id) 
     {
-        return date('d', $date);
+        $seatNumber = Desk::getSeatNumber($desk_id);
+
+        return $seatNumber;
     }
 }

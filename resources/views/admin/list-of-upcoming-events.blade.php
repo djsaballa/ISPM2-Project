@@ -29,49 +29,33 @@
                     <th class="profile-image-header"></th>
                     <th>Event</th>
                     <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                     <th>
-                        <button class="button add2">Add</button>
+                        <a href="{{ route('admin_add_bookings') }}">
+                            <button class="button add2">Add</button>
+                        </a>
                     </th>
                 <tr>
             </thead>
             <tbody class="sched-table-row">
+                @foreach($upcoming_events as $upcoming_event)
                 <tr>
                     <td class="profile-image"></td>
-                    <td>Scheduled Hotdesk #8</td>
-                    <td>Monday, March 28, 2022</td>
+                    <td>{{ $upcoming_event->title }}</td>
+                    <td>{{ $upcoming_event->date }}</td>
+                    <td>{{ $upcoming_event->start_time }}</td>
+                    <td>{{ $upcoming_event->end_time }}</td>
                     <td>
-                        <a href="/admin-edit-schedules">
+                        <a href="{{ route('admin_edit_schedules'), $upcoming_event->id }}">
                             <button class="button edit2">Edit</button>
                         </a>
-                        <button class="button delete2">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tbody class="sched-table-row">
-                <tr>
-                    <td class="profile-image"></td>
-                    <td>Holiday #1</td>
-                    <td>Monday, March 28, 2022</td>
-                    <td>
-                        <a href="/admin-edit-schedules">
-                            <button class="button edit2">Edit</button>
+                        <a onClick="">
+                            <button class="button delete2">Delete</button>
                         </a>
-                        <button class="button delete2">Delete</button>
                     </td>
                 </tr>
-            </tbody>
-            <tbody class="sched-table-row">
-                <tr>
-                    <td class="profile-image"></td>
-                    <td>Foundation Week!</td>
-                    <td>Monday, March 28, 2022</td>
-                    <td>
-                        <a href="/admin-edit-schedules">
-                            <button class="button edit2">Edit</button>
-                        </a>
-                        <button class="button delete2">Delete</button>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
         <footer>

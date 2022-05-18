@@ -31,8 +31,22 @@ class User extends Authenticatable
         'department'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getFullName($user_id)
+    {
+        $user = User::find($user_id);
+        $firstName = $user->first_name;
+        $lastName = $user->last_name;
+
+        return $firstName . " " . $lastName; 
     }
 }

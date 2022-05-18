@@ -21,85 +21,29 @@
                 <thead class="bookings-table-header">
                     <tr>
                         <th class="profile-image-header"></th>
-                        <th>ID</th>
                         <th>Employee</th>
                         <th>Desk</th>
                         <th>Date</th>
-                        <th>Booking Tile</th>
                         <th></th>
                     <tr>
                 </thead>
                 <tbody class="bookings-table-row">
+                    @foreach($bookings as $booking)
                     <tr>
                         <td class="profile-image"></td>
-                        <td>1</td>
-                        <td>Dave Sadsad</td>
-                        <td>Desk 23</td>
-                        <td> May 26, 2022</td>
-                        <td>Wala, uupo lang</td>
+                        <td>{{ $booking->getUserFullName($booking->user_id) }}Dave Sadsad</td>
+                        <td>Desk {{ $booking->getSeatNumber($booking->desk_id) }}</td>
+                        <td>{{ $booking->date }}</td>
                         <td>
-                            <a href="/admin-edit-bookings">
+                            <a href="{{ route('admin_edit_bookings'), $booking->id }}">
                                 <button type="button" class="bookings-btn">Edit</button>
                             </a>
-                            <button type="button" class="bookings-cncl-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="profile-image"></td>
-                        <td>2</td>
-                        <td>Melrose Berocil Cortes</td>
-                        <td>Desk 8</td>
-                        <td> May 22, 2022</td>
-                        <td>Wala, uupo lang</td>
-                        <td>
-                            <a href="/admin-edit-bookings">
-                                <button type="button" class="bookings-btn">Edit</button>
+                            <a onClick="">
+                                <button type="button" class="bookings-cncl-btn">Delete</button>
                             </a>
-                            <button type="button" class="bookings-cncl-btn">Delete</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="profile-image"></td>
-                        <td>3</td>
-                        <td>Heidi Guevarra</td>
-                        <td>Desk 22</td>
-                        <td> May 22, 2022</td>
-                        <td>Wala, uupo lang</td>
-                        <td>
-                            <a href="/admin-edit-bookings">
-                                <button type="button" class="bookings-btn">Edit</button>
-                            </a>
-                            <button type="button" class="bookings-cncl-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="profile-image"></td>
-                        <td>4</td>
-                        <td>Daniel Emili Gaspar</td>
-                        <td>Desk 12</td>
-                        <td> May 18, 2022</td>
-                        <td>Wala, uupo lang</td>
-                        <td>
-                            <a href="/admin-edit-bookings">
-                                <button type="button" class="bookings-btn">Edit</button>
-                            </a>
-                            <button type="button" class="bookings-cncl-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="profile-image"></td>
-                        <td>5</td>
-                        <td>Daniel John Saballa</td>
-                        <td>Desk 16</td>
-                        <td> May 28, 2022</td>
-                        <td>Wala, uupo lang</td>
-                        <td>
-                            <a href="/admin-edit-bookings">
-                                <button type="button" class="bookings-btn">Edit</button>
-                            </a>
-                            <button type="button" class="bookings-cncl-btn">Delete</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

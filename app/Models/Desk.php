@@ -17,4 +17,12 @@ class Desk extends Model
     {
         return $this->id;
     }
+
+    public function getSeatNumber($desk_id)
+    {
+        $desk = Desk::find($desk_id);
+        $seatNumber = $desk->seat_number;
+
+        return $seatNumber;
+    }
 }

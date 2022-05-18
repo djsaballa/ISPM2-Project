@@ -31,8 +31,6 @@
         </select>
         <label class="add-top-margin">Date: </label>
         <input type="date" id="date">
-        <label>Booking Title: </label>
-        <input type="text" id="urreason" placeholder="State your reason">
         <button class="button"> Add </button>
     </form>
 
