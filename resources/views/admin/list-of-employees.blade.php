@@ -26,17 +26,25 @@
                 <th>Name</th>
                 <th>Department</th>
                 <th>Email</th>
+                <th>Password</th>
                 <th>Phone Number</th>
+                <th></th>
             <tr>
         </thead>
         <tbody class="employee-table-row">
+            @foreach ($employees as $employee) 
             <tr>
                 <td class="profile-image"></td>
-                <td>Dave Sadsad</td>
-                <td>PDEA</td>
-                <td>heidi@gmail.com</td>
-                <td>09123456789</td>
+                <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
+                <td>{{ $employee->department }}</td>
+                <td>{{ $employee->email }}</td>
+                <td>{{ $employee->password }}</td>
+                <td>{{ $employee->phone_number }}</td>
+                <th>
+                    <button>Change Password</button>
+                </th>
             </tr>
+            @endforeach
         </tbody>
     </table>
  <!-- </div> -->

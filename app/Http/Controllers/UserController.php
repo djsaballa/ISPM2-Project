@@ -10,6 +10,7 @@ use App\Models\UpcomingEvent;
 
 class UserController extends Controller
 {
+    // HOME
     public function home($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
@@ -19,6 +20,7 @@ class UserController extends Controller
         return view(('user.home'), compact('user_info', 'user_bookings', 'upcoming_events'));
     }
 
+    // LIST OF BOOKINGS
     public function bookings($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
@@ -26,6 +28,7 @@ class UserController extends Controller
         return view(('user.list-of-bookings'), compact('user_info'));
     }
 
+    // MAP
     public function map($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
