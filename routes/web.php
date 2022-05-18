@@ -43,8 +43,8 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
   // HOME
   Route::get('/user-home/{user_id}', [UserController::class, 'home'])->name('user_home');
   // LIST OF BOOKINGS
-  Route::get('/user-bookings', [UserController::class, 'bookings'])->name('user_bookings');
+  Route::get('/user-bookings/{user_id}', [UserController::class, 'bookings'])->name('user_bookings');
   // MAP
-  Route::get('/user-map', [UserController::class, 'map'])->name('user_map');
+  Route::get('/user-map/{user_id}', [UserController::class, 'map'])->name('user_map');
 
 

@@ -13,19 +13,23 @@ class UserController extends Controller
     public function home($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
-        $user_bookings = Booking::where('user_id', $user_id)->get();
+        $user_bookings = Booking::where('user_id', '=', $user_id)->get();
         $upcoming_events = UpcomingEvent::all();
 
         return view(('user.home'), compact('user_info', 'user_bookings', 'upcoming_events'));
     }
 
-    public function bookings(Request $request)
+    public function bookings($user_id)
     {
-        return view('user.list-of-bookings');
+        $user_info = User::where('id', '=', $user_id)->first();
+
+        return view(('user.list-of-bookings'), compact('user_info'));
     }
 
-    public function map(Request $request)
+    public function map($user_id)
     {
-        return view('user.map');
+        $user_info = User::where('id', '=', $user_id)->first();
+
+        return view(('user.map'), compact('user_info'));
     }
 }
