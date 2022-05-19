@@ -18,12 +18,31 @@
 
     <h1 class="add-schedule-header"> Add Upcoming Events </h1>
 
-    <form class="add-schedule-box" action="/list-of-upcoming-events.blade.php">
-        <label>Event: </label>
-        <input type="text" id="event" placeholder="Enter Event">
+    <form class="add-schedule-box" method="POST" action="{{ route('admin_save_schedules') }}">
+        @csrf
+        <label>Event Title: </label>
+        <input type="text" id="eventTitle" name="eventTitle" placeholder="Title of Event">
+        <p class="error text-md-center" style="color: red;">@error('eventTitle'){{ $message }} @enderror</p>
+
+        <label>Description: </label>
+        <input class="event-edit-input" type="text" id="desc" name="desc" placeholder="Description of Event">
+        <p class="error text-md-center" style="color: red;">@error('desc'){{ $message }} @enderror</p>
+
         <label>Date: </label>
-        <input type="date" id="date">
-        <button class="button"> Add </button>
+        <input type="date" id="date" name="date">
+        <p class="error text-md-center" style="color: red;">@error('date'){{ $message }} @enderror</p>
+
+        <p>(If you desire to have a Start Time or End Time, then all Hour, Minute, and Period of Time must be filled out)</p>
+
+        <label>Start Time: </label>
+        <input type="time" id="startTime" name="startTime">
+        <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
+
+        <label>End Time: </label>
+        <input type="time" id="endTime" name="endTime">
+        <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+
+        <button class="button"> Save </button>
     </form>
 
     <footer>

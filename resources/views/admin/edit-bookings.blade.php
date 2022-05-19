@@ -21,47 +21,37 @@
 
     <h1 class="edit-book-header">EDIT BOOKINGS</h1>
 
-    <form class="edit-book-box" action="/list-of-bookings.blade.php">
-        <label>Employee: </label>
-        <input type="text" id="employee" value="">
+
+    <form class="edit-book-box" method="POST" action="{{ route('admin_update_bookings', $booking_info->id) }}">
+    <p class="error" style="color: red; text-align:center;">{{ Session::get('notAvailable') }}</p>
+
+        @csrf
+        <input type="hidden" id="bookingId" name="bookingId" value="{{ $booking_info->id }}">
+
+        <label>Employee:</label>
+            <input type="text" id="fullName" name="fullName" value="{{ $booking_info->getUserFullName($booking_info->user_id) }}" readonly>            
+            <input type="hidden" id="userId" name="userId" value="{{ $booking_info->user_id }}">
+
+            
+        <p class="error text-md-center" style="color: red;">@error('userId'){{ $message }} @enderror</p>
+
         <label>Desk: </label>
-        <select class="edit-select-desk" id="desk">
-            <option value="Desk 1">Desk 01</option>
-            <option value="Desk 2">Desk 02</option>
-            <option value="Desk 3">Desk 03</option>
-            <option value="Desk 4">Desk 04</option>
-            <option value="Desk 5">Desk 05</option>
-            <option value="Desk 6">Desk 06</option>
-            <option value="Desk 7">Desk 07</option>
-            <option value="Desk 8">Desk 08</option>
-            <option value="Desk 9">Desk 09</option>
-            <option value="Desk 10">Desk 10</option>
-            <option value="Desk 11">Desk 11</option>
-            <option value="Desk 12">Desk 12</option>
-            <option value="Desk 13">Desk 13</option>
-            <option value="Desk 14">Desk 14</option>
-            <option value="Desk 15">Desk 15</option>
-            <option value="Desk 16">Desk 16</option>
-            <option value="Desk 17">Desk 17</option>
-            <option value="Desk 18">Desk 18</option>
-            <option value="Desk 19">Desk 19</option>
-            <option value="Desk 20">Desk 20</option>
-            <option value="Desk 21">Desk 21</option>
-            <option value="Desk 22">Desk 22</option>
-            <option value="Desk 23">Desk 23</option>
-            <option value="Desk 24">Desk 24</option>
-            <option value="Desk 25">Desk 25</option>
-            <option value="Desk 26">Desk 26</option>
-            <option value="Desk 27">Desk 27</option>
-            <option value="Desk 28">Desk 28</option>
-            <option value="Desk 29">Desk 29</option>
-            <option value="Desk 30">Desk 30</option>
+        <select class="edit-select-desk" id="deskId" name="deskId">
+            <option selected="selected" value="{{ $booking_info->desk_id }}">Desk {{ $booking_info->getSeatNumber($booking_info->desk_id) }}</option>
+            @foreach($desks as $desk)
+            <option value="{{ $desk->id }}">Desk {{ $desk->seat_number }}</option>
+            @endforeach
         </select>
+        <p class="error text-md-center" style="color: red;">@error('deskId'){{ $message }} @enderror</p>
+
         <label class="edit-top-margin">Date: </label>
-        <input type="date" id="date" value="">
-        <label>Booking Title: </label>
-        <input type="text" id="urreason" value="">
+        <input type="date" id="date" name="date" value="{{ $booking_info->date }}">
+        <p class="error text-md-center" style="color: red;">@error('date'){{ $message }} @enderror</p>
+
         <button class="button"> Save </button>
+        <a href="{{ route('admin_bookings') }}">
+            <input type="button" value="Cancel">
+        </a>
     </form>
 
     <footer>

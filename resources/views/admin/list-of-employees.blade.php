@@ -17,7 +17,16 @@
 
     <h1 class="employee-header">EMPLOYEES</h1>
 
-    <input class="search-bar" type="text" name="searchbar" id="searchbar" placeholder="search people by name or email">
+    @if (Session::has('succesful-change'))
+            <div role="alert">
+                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-change') !!}</p>
+            </div>
+    @endif
+    @if (Session::has('unsuccesful-change'))
+            <div role="alert">
+                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-change') !!}</p>
+            </div>
+    @endif
 
     <table class="employee-table" id="employees">
         <thead class="employee-table-header">

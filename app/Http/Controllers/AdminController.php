@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Rule;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Desk;
 use App\Models\UpcomingEvent;
+use Session;
 
 class AdminController extends Controller
 {
@@ -53,25 +56,108 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
-    // LIST OF BOOKINGS
+    /**
+     *  LIST OF BOOKINGS
+    **/ 
     public function bookings(Request $request)
     {
-        $bookings = Booking::all();
+        $bookings = Booking::orderBy('date', 'ASC')->get();
 
         return view(('admin.list-of-bookings'), compact('bookings'));
     }
 
-    public function addBookings(Request $request)
-    {
-        return view('admin.add-bookings');
-    }
-
+    // Edit Bookings
     public function editBookings($booking_id)
     {
-        return view('admin.edit-bookings');
+        $booking_info = Booking::find($booking_id);
+        $desks = Desk::all();
+
+        return view(('admin.edit-bookings'), compact('desks', 'booking_info'));
     }
 
-    // LIST OF EMPLOYEES
+    // Update Bookings
+    public function updateBookings(Request $request) 
+    {
+        $request->validate([
+            'userId' => 'required',
+            'deskId' => 'required',
+            'date' => 'date_format:Y-m-d',
+        ],
+        [
+            'userId.required' => 'Employee is required',
+            'deskId.required' => 'Desk is required',
+            'peridateod.date_format' => 'Incorrect date format',
+        ]);
+
+        $user_id = $request->userId;
+        $desk_id = $request->deskId;
+        $date = $request->date;
+
+        $check_availibility = Booking::where('date', '=', $date)->where('desk_id', '=', $desk_id)->get();
+        $check_availability_user_id = Booking::where('date', '=', $date)->where('desk_id', '=', $desk_id)->where('user_id', '=', $user_id)->get();
+
+        if((count($check_availibility) == 0) || ($check_availibility && (count($check_availability_user_id) == 0))) {
+            $booking_update = [
+                'user_id' => $user_id,
+                'desk_id' => $desk_id,
+                'date' => $date
+            ];
+
+            $booking_id = $request->bookingId;
+            
+            if(!is_null($booking_id)) {
+                $booking = Booking::find($booking_id);
+
+                $booking->update($booking_update);
+
+                if($booking->update($booking_update)) {
+                    Session::flash('succesful-edit', 'Edited booking successfully.');
+
+                    $bookings = Booking::orderBy('date', 'ASC')->get();
+
+                    return view(('admin.list-of-bookings'), compact('bookings'));
+                } else {
+                    Session::flash('unsuccesful-edit', 'Unsuccessful edit of booking.');
+
+                    $bookings = Booking::orderBy('date', 'ASC')->get();
+
+                    return view(('admin.list-of-bookings'), compact('bookings'));
+                }
+            } else {
+                Session::flash('unsuccesful-edit', 'Unsuccessful edit of booking.');
+
+                $bookings = Booking::orderBy('date', 'ASC')->get();
+
+                return view(('admin.list-of-bookings'), compact('bookings'));
+            }
+        } else {
+            return back()->with('notAvailable','The seat is not available on that date.');
+        }
+    }
+
+    // Delete Bookings
+    public function deleteBookings($booking_id)
+    {
+        $delete = Booking::find($booking_id)->delete();   
+        if ($delete) {
+            Session::flash('succesful-deletion', 'Booking has been successfully deleted.');
+
+            $bookings = Booking::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-bookings'), compact('bookings'));
+        } else {
+            Session::flash('unsuccesful-deletion', 'An error has occurred, booking has not been deleted.');
+
+            $bookings = Booking::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-bookings'), compact('bookings'));
+        }
+    }
+
+
+    /**
+     *  LIST OF EMPLOYEES
+    **/
     public function employees(Request $request)
     {
         $employees = User::all();
@@ -79,26 +165,196 @@ class AdminController extends Controller
         return view(('admin.list-of-employees'), compact('employees'));
     }
 
+    // Change Password
     public function changePassword($user_id)
     {
-        return view('admin.change-password-employees');
+        $user_info = User::find($user_id);
+        return view(('admin.change-password-employees'), compact('user_info'));
     }
 
-    // LIST OF UPCOMING EVENTS
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'newPassword' => 'required|min:8',
+            'comfirmNewPassword' => ['same:newPassword'],
+        ]);
+    
+        $user_id = $request->userId;
+
+        if ($user_id) {
+            $user_info = User::find($user_id);
+
+            if (!is_null($user_info)) {
+                $user_info->update(['password'=> $request->newPassword]);
+                Session::flash('succesful-change', 'Changed password successfully.');
+                $employees = User::all();
+
+                return view(('admin.list-of-employees'), compact('employees'));
+            } else { 
+                Session::flash('unsuccesful-change', 'Password change is unsuccessful.');
+                $employees = User::all();
+
+                return view(('admin.list-of-employees'), compact('employees'));                
+            }
+        } else {
+            Session::flash('unsuccesful-change', 'Password change is unsuccessful.');
+            $employees = User::all();
+
+            return view(('admin.list-of-employees'), compact('employees'));
+        }
+   }
+
+    /**
+     *  LIST OF UPCOMING EVENTS
+    **/
     public function upcomingEvents(Request $request)
     {
-        $upcoming_events = UpcomingEvent::all();
+        $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
 
         return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
     }
 
+    // Add Upcoming Events
     public function addSchedules(Request $request)
     {
         return view('admin.add-schedules');
     }
 
+    // Save Upcoming Event
+    public function saveSchedules(Request $request)
+    {
+        $request->validate([
+            'eventTitle' => 'required',
+            'desc' => 'required',
+            'date' => 'required|date_format:Y-m-d',
+            'startTime' => 'nullable|date_format:H:i:s',
+            'endTime' => 'nullable|date_format:H:i:s'
+        ],
+        [
+            'eventTitle.required' => 'Event Title is required',
+            'desc.required' => 'Description is required',
+            'date.required' => 'Date is required',
+            'date.date_format' => 'Incorrect date format',
+            'startTime.date_format' => 'Incorrect time format',
+            'endTime.date_format' => 'Incorrect time format',
+        ]);
+
+        $event_title = $request->eventTitle;
+        $description = $request->desc;
+        $date = $request->date;
+        $start_time = $request->startTime;
+        $end_time = $request->endTime;
+        $upcoming_event = [
+            'title' => $event_title,
+            'description' => $description,
+            'date' => $date,
+            'start_time' => $start_time,
+            'end_time' => $end_time
+        ];
+
+        if(!is_null($upcoming_event)) {
+            $upcoming_event_add = UpcomingEvent::create($upcoming_event);
+
+            if($upcoming_event_add) {
+                Session::flash('succesful-add', 'Added Upcoming Event successfully.');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+    
+                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            } else {
+                Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+    
+                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            }
+        } else {
+            Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        }
+    }
+
+    // Edit Upcoming Events
     public function editSchedules($event_id)
     {
-        return view('admin.edit-schedules');
+        $event_info = UpcomingEvent::find($event_id);
+
+        return view(('admin.edit-schedules'), compact('event_info'));
+    }
+
+    // Update Upcoming Events
+    public function updateSchedules(Request $request)
+    {
+        $request->validate([
+            'eventTitle' => 'required',
+            'desc' => 'required',
+            'date' => 'date_format:Y-m-d',
+            'startTime' => 'nullable|date_format:H:i:s',
+            'endTime' => 'nullable|date_format:H:i:s'
+        ],
+        [
+            'eventTitle.required' => 'Event Title is required',
+            'desc.required' => 'Description is required',
+            'date.date_format' => 'Incorrect date format',
+            'startTime.date_format' => 'Incorrect time format',
+            'endTime.date_format' => 'Incorrect time format',
+        ]);
+
+        $event_title = $request->eventTitle;
+        $description = $request->desc;
+        $date = $request->date;
+        $start_time = $request->startTime;
+        $end_time = $request->endTime;
+        $event_update= [
+            'title' => $event_title,
+            'description' => $description,
+            'date' => $date,
+            'start_time' => $start_time,
+            'end_time' => $end_time,
+        ];
+
+        $event_id = $request->eventId;
+
+        if ($event_id) {
+            $event_info = UpcomingEvent::find($event_id);
+
+            if (!is_null($event_info)) {
+                $event_info->update($event_update);
+                
+                Session::flash('succesful-edit', 'Edited upcoming event successfully.');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            } else { 
+                Session::flash('unsuccesful-edit', 'Editing of Upcoming Event is unsuccessful.');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));                
+            }
+        } else {
+            Session::flash('unsuccesful-edit', 'Editing of Upcoming Event is unsuccessful.');
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        }
+    }
+
+    // Delete Upcoming Events
+    public function deleteSchedules($event_id)
+    {
+        $delete = UpcomingEvent::find($event_id)->delete();   
+        if ($delete) {
+            Session::flash('succesful-deletion', 'Booking has been successfully deleted.');
+
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        } else {
+            Session::flash('unsuccesful-deletion', 'An error has occurred, booking has not been deleted.');
+
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        }
     }
 }
