@@ -32,7 +32,7 @@
             <tr>
         </thead>
         <tbody class="employee-table-row">
-            @foreach($employees as $employee) 
+            @foreach($employees as $employee)
             <tr>
                 <td class="profile-image"></td>
                 <td>{{ $employee->getFullName($employee->id) }}</td>
@@ -40,19 +40,19 @@
                 <td>{{ $employee->email }}</td>
                 <td>{{ $employee->password }}</td>
                 <td>{{ $employee->phone_number }}</td>
-                <th>
+                <td>
                     <a href="{{ route('admin_change_passwords', $employee->id) }}">
-                        <button>Change Password</button>
+                        <button class="btn-chngpass">Change Password</button>
                     </a>
-                </th>
+                </td>
             </tr>
             @endforeach
         </tbody>
     </table>
- <!-- </div> -->
- <footer>
-            @include('components.footer')
-        </footer>
+    <!-- </div> -->
+    <footer>
+        @include('components.footer')
+    </footer>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

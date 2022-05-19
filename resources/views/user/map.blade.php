@@ -83,8 +83,9 @@
             <br>
 
             <label class="form-title" for="subject">Booking Title</label>
+            <br>
             <textarea class="form-input" id="subject" name="subject" placeholder="An optional booking summary"></textarea>
-
+            <br>
             <input type="submit" value="Add Booking">
         </form>
 

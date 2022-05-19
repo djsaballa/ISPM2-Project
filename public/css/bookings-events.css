@@ -36,7 +36,7 @@ footer {
   left: 165px;
   margin-top: 50px;
   border-spacing: 0px;
-  /* margin-bottom: 125px; */
+  margin-bottom: 240px;
 }
 
 .sched-table-header {
@@ -45,6 +45,7 @@ footer {
   background-color: #eaeefb;
 }
 .sched-table-header tr th {
+  height: 40px;
   color: #226acc;
   padding-left: 1%;
   text-align: left;
@@ -59,6 +60,7 @@ footer {
 }
 
 .sched-table-row tr td {
+  padding-left: 1%;
   border-bottom: 1px solid;
   border-color: #848fbb;
 }
@@ -99,6 +101,10 @@ footer {
 .edit2,
 .add2 {
   background-color: #2269cc;
+}
+
+.delete2 {
+  background-color: #ff4e44;
 }
 
 /** ADD BOOKINGS **/

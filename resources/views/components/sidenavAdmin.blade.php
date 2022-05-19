@@ -57,7 +57,7 @@
             <li class="navv-item {{ request()->is('schedules') ? 'active2' : '' }}">
                 <i class="fi fi-br-calendar {{ request()->is('schedules') ? 'active' : '' }}"></i>
                 <a class="navv-link  {{ request()->is('schedules') ? 'active' : '' }}" href="{{ route('admin_upcoming_events') }}">
-                    Upcoming Schedules
+                    Upcoming Event
                 </a>
             </li>
 

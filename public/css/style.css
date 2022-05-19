@@ -3,7 +3,6 @@ body {
   margin: 0;
 }
 
-
 body {
   margin: 0;
   overflow-x: hidden;
@@ -284,7 +283,6 @@ body {
   height: 727.5px;
   object-fit: cover;
 }
-  
 
 /** Admin Support **/
 .huy {
@@ -371,25 +369,29 @@ body {
   left: 165px;
   margin-top: 100px;
   border-spacing: 0px;
+  margin-bottom: 125px;
 }
 
 .employee-table-header {
+  text-align: left;
   width: 100%;
   height: 40px;
   background-color: #eaeefb;
 }
 .employee-table-header tr th {
+  padding-left: 1%;
   font-family: "Moon 2.0";
   font-weight: bold;
   color: #226acc;
 }
 
 .employee-table-row {
-  height: 40px;
   color: #226acc;
 }
 
 .employee-table-row tr td {
+  padding-left: 1%;
+  height: 40px;
   border-bottom: 1px solid;
   border-color: #848fbb;
   font-family: "Red Hat Display";
@@ -404,7 +406,6 @@ body {
   font-family: "Red Hat Display";
   color: #848fbb;
   background-color: #f7f9ff;
-  width: 300px;
   height: 35px;
   font-size: 15px;
   text-align: left;
@@ -414,13 +415,9 @@ body {
   background-position: 5%;
 }
 
-.search-bar[type="text"] {
-  background-image: url("../images/search.png");
-}
-
-.profile-image-header {
-  width: 40px;
-}
+/* #searchbar {
+  width: 40%;
+} */
 
 .profile-image {
   background-size: 25px 25px;
@@ -428,6 +425,15 @@ body {
   background-position: center;
   align-items: center;
   background-image: url("../images/profile-pic.png");
+}
+
+.btn-chngpass {
+  background-color: #226acc;
+  color: white;
+  padding: 5px 20px 5px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 /** FOOTER **/
@@ -586,6 +592,17 @@ input {
   height: 100px;
 }
 
+textarea {
+  width: 50%; /* Full width */
+  padding: 12px; /* Some padding */
+  /* border: 1px solid #ccc; Gray border */
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-family: "Red Hat Display";
+}
+
 /** USER BOOKINGS—START **/
 
 .bookings-header {
@@ -688,10 +705,6 @@ input {
   font-family: "Red Hat Display";
 }
 
-.profile-image-header {
-  width: 10px;
-}
-
 .profile-image {
   background-size: 25px 25px;
   background-repeat: no-repeat;
@@ -736,12 +749,11 @@ input {
 
 /* Style inputs with type="text", select elements and textareas */
 input[type="text"],
-select,
-textarea {
-  width: 100%; /* Full width */
+select {
+  width: 50%; /* Full width */
   padding: 12px; /* Some padding */
   /* border: 1px solid #ccc; Gray border */
-  border-radius: 4px; /* Rounded borders */
+  border-radius: 10px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
