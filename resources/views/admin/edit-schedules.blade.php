@@ -23,13 +23,30 @@
 
         <h1 class="edit-schedule-header"> EDIT UPCOMING EVENTS </h1>
         <div class="schedule-box-container">
-            <form class="edit-schedule-box" action="/list-of-upcoming-events.blade.php">
+            <form class="edit-schedule-box" method="POST" action="{{ route('admin_update_schedules') }}">
+                @csrf
+                <input type="hidden" id="eventId" name="eventId" value="{{ $event_info->id }}">
+
                 <label>Event Title: </label>
-                <input type="text" id="event-title" value="">
-                <label>Date: </label>
-                <input type="date" id="date" value="">
+                <input type="text" id="eventTitle" name="eventTitle" value="{{ $event_info->title }}">
+                <p class="error text-md-center" style="color: red;">@error('eventTitle'){{ $message }} @enderror</p>
+
                 <label>Description: </label>
-                <input class="event-edit-input" type="text" id="desc" value="">
+                <input class="event-edit-input" type="text" id="desc" name="desc" value="{{ $event_info->description }}">
+                <p class="error text-md-center" style="color: red;">@error('desc'){{ $message }} @enderror</p>
+
+                <label>Date: </label>
+                <input type="date" id="date" name="date" value="{{ $event_info->date }}">
+                <p class="error text-md-center" style="color: red;">@error('date'){{ $message }} @enderror</p>
+
+                <label>Start Time: </label>
+                <input type="time" id="startTime" name="startTime" value="{{ $event_info->start_time }}">
+                <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
+
+                <label>End Time: </label>
+                <input type="time" id="endTime" name="endTime" value="{{ $event_info->end_time }}">
+                <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+
                 <button class="button"> Save </button>
             </form>
         </div>

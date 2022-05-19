@@ -26,20 +26,26 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
   Route::get('/admin-home', [AdminController::class, 'home'])->name('admin_home');
   // LIST OF BOOKINGS
   Route::get('/admin-bookings', [AdminController::class, 'bookings'])->name('admin_bookings');
-      // ADD BOOKINGS
-      Route::get('/admin-add-bookings', [AdminController::class, 'addBookings'])->name('admin_add_bookings');
       // EDIT BOOKINGS
       Route::get('/admin-edit-bookings/{booking_id}', [AdminController::class, 'editBookings'])->name('admin_edit_bookings');
+      Route::post('/admin-update-bookings', [AdminController::class, 'updateBookings'])->name('admin_update_bookings');
+      // DELETE BOOKING
+      Route::post('/admin-delete-bookings/{booking_id}', [AdminController::class, 'deleteBookings'])->name('admin_delete_bookings');
   // LIST OF EMPLOYEES
   Route::get('/admin-employees', [AdminController::class, 'employees'])->name('admin_employees');
       // CHANGE PASSWORD
       Route::get('/admin-change-passwords/{user_id}', [AdminController::class, 'changePassword'])->name('admin_change_passwords');
+      Route::post('/admin-update-passwords', [AdminController::class, 'updatePassword'])->name('admin_update_passwords');
   // LIST OF UPCOMING EVENTS
   Route::get('/admin-upcoming-events', [AdminController::class, 'upcomingEvents'])->name('admin_upcoming_events');
       // ADD UPCOMING EVENTS
       Route::get('/admin-add-schedules', [AdminController::class, 'addSchedules'])->name('admin_add_schedules');
+      Route::post('/admin-save-schedules', [AdminController::class, 'saveSchedules'])->name('admin_save_schedules');
       // EDIT UPCOMING EVENTS
       Route::get('/admin-edit-schedules/{event_id}', [AdminController::class, 'editSchedules'])->name('admin_edit_schedules');
+      Route::post('/admin-update-schedules', [AdminController::class, 'updateSchedules'])->name('admin_update_schedules');
+      // DELETE UPCOMING EVENT
+      Route::post('/admin-delete-bookings{event_id}', [AdminController::class, 'deleteSchedules'])->name('admin_delete_schedules');
 
 // USER
   // HOME
