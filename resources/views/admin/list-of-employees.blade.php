@@ -35,7 +35,6 @@
                 <th>Name</th>
                 <th>Department</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Phone Number</th>
                 <th></th>
             <tr>
@@ -47,7 +46,6 @@
                 <td>{{ $employee->getFullName($employee->id) }}</td>
                 <td>{{ $employee->department }}</td>
                 <td>{{ $employee->email }}</td>
-                <td>{{ $employee->password }}</td>
                 <td>{{ $employee->phone_number }}</td>
                 <td>
                     <a href="{{ route('admin_change_passwords', $employee->id) }}">

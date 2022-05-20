@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Models\Desk;
 use App\Models\UpcomingEvent;
+use Carbon\Carbon;
+use DateTime;
 use Session;
 
 class AdminController extends Controller
@@ -51,6 +53,9 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     *   HOME
+    **/ 
     public function home(Request $request)
     {
         return view('admin.home');
@@ -61,7 +66,8 @@ class AdminController extends Controller
     **/ 
     public function bookings(Request $request)
     {
-        $bookings = Booking::orderBy('date', 'ASC')->get();
+        $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+        $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
         return view(('admin.list-of-bookings'), compact('bookings'));
     }
@@ -113,20 +119,23 @@ class AdminController extends Controller
                 if($booking->update($booking_update)) {
                     Session::flash('succesful-edit', 'Edited booking successfully.');
 
-                    $bookings = Booking::orderBy('date', 'ASC')->get();
+                    $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                    $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
                     return view(('admin.list-of-bookings'), compact('bookings'));
                 } else {
                     Session::flash('unsuccesful-edit', 'Unsuccessful edit of booking.');
 
-                    $bookings = Booking::orderBy('date', 'ASC')->get();
+                    $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                    $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
                     return view(('admin.list-of-bookings'), compact('bookings'));
                 }
             } else {
                 Session::flash('unsuccesful-edit', 'Unsuccessful edit of booking.');
 
-                $bookings = Booking::orderBy('date', 'ASC')->get();
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
                 return view(('admin.list-of-bookings'), compact('bookings'));
             }
@@ -138,17 +147,29 @@ class AdminController extends Controller
     // Delete Bookings
     public function deleteBookings($booking_id)
     {
-        $delete = Booking::find($booking_id)->delete();   
-        if ($delete) {
-            Session::flash('succesful-deletion', 'Booking has been successfully deleted.');
-
-            $bookings = Booking::orderBy('date', 'ASC')->get();
-
-            return view(('admin.list-of-bookings'), compact('bookings'));
-        } else {
+        if(!is_null($booking_id)) {
+            $delete = Booking::find($booking_id)->delete();   
+            if ($delete) {
+                Session::flash('succesful-deletion', 'Booking has been successfully deleted.');
+    
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
+    
+                return view(('admin.list-of-bookings'), compact('bookings'));
+            } else {
+                Session::flash('unsuccesful-deletion', 'An error has occurred, booking has not been deleted.');
+    
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
+    
+                return view(('admin.list-of-bookings'), compact('bookings'));
+            }
+        }
+        else {
             Session::flash('unsuccesful-deletion', 'An error has occurred, booking has not been deleted.');
 
-            $bookings = Booking::orderBy('date', 'ASC')->get();
+            $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+            $bookings = Booking::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
             return view(('admin.list-of-bookings'), compact('bookings'));
         }
@@ -209,7 +230,8 @@ class AdminController extends Controller
     **/
     public function upcomingEvents(Request $request)
     {
-        $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+        $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+        $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
 
         return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
     }
@@ -257,18 +279,24 @@ class AdminController extends Controller
 
             if($upcoming_event_add) {
                 Session::flash('succesful-add', 'Added Upcoming Event successfully.');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
     
                 return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
             } else {
                 Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
     
                 return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
             }
         } else {
             Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
-            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
 
             return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
         }
@@ -322,18 +350,24 @@ class AdminController extends Controller
                 $event_info->update($event_update);
                 
                 Session::flash('succesful-edit', 'Edited upcoming event successfully.');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
 
                 return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
             } else { 
                 Session::flash('unsuccesful-edit', 'Editing of Upcoming Event is unsuccessful.');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
 
             return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));                
             }
         } else {
             Session::flash('unsuccesful-edit', 'Editing of Upcoming Event is unsuccessful.');
-            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+            $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
 
             return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
         }
@@ -342,17 +376,28 @@ class AdminController extends Controller
     // Delete Upcoming Events
     public function deleteSchedules($event_id)
     {
-        $delete = UpcomingEvent::find($event_id)->delete();   
-        if ($delete) {
-            Session::flash('succesful-deletion', 'Booking has been successfully deleted.');
-
-            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
-
-            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        if(!is_null($event_id)) {
+            $delete = UpcomingEvent::find($event_id)->delete();   
+            if ($delete) {
+                Session::flash('succesful-deletion', 'Upcoming Event has been successfully deleted.');
+    
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
+    
+                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            } else {
+                Session::flash('unsuccesful-deletion', 'An error has occurred, Upcoming Event has not been deleted.');
+    
+                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
+    
+                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            }
         } else {
-            Session::flash('unsuccesful-deletion', 'An error has occurred, booking has not been deleted.');
+            Session::flash('unsuccesful-deletion', 'An error has occurred, Upcoming Event has not been deleted.');
 
-            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+            $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
 
             return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
         }

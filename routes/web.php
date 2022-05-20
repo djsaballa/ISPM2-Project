@@ -45,14 +45,18 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
       Route::get('/admin-edit-schedules/{event_id}', [AdminController::class, 'editSchedules'])->name('admin_edit_schedules');
       Route::post('/admin-update-schedules', [AdminController::class, 'updateSchedules'])->name('admin_update_schedules');
       // DELETE UPCOMING EVENT
-      Route::post('/admin-delete-bookings{event_id}', [AdminController::class, 'deleteSchedules'])->name('admin_delete_schedules');
+      Route::post('/admin-delete-schedules/{event_id}', [AdminController::class, 'deleteSchedules'])->name('admin_delete_schedules');
 
 // USER
   // HOME
   Route::get('/user-home/{user_id}', [UserController::class, 'home'])->name('user_home');
   // LIST OF BOOKINGS
   Route::get('/user-bookings/{user_id}', [UserController::class, 'bookings'])->name('user_bookings');
+        // CANCEL BOOKING
+        Route::post('/user-cancel-booking/{user_id}/{booking_id}', [UserController::class, 'cancelBooking'])->name('user_cancel_booking');
   // MAP
   Route::get('/user-map/{user_id}', [UserController::class, 'map'])->name('user_map');
+        // MAKE BOOKING
+        Route::POST('/user-make-booking', [UserController::class, 'makeBooking'])->name('user_make_booking');
 
 
