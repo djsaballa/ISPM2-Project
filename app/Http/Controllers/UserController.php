@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Models\Desk;
 use App\Models\UpcomingEvent;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use DateTime;
 use Session;
@@ -22,7 +24,9 @@ class UserController extends Controller
     {
         $user_info = User::where('id', '=', $user_id)->first();
         $user_bookings = Booking::where('user_id', '=', $user_id)->orderBy('date', 'ASC')->get();
-        $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->get();
+
+        $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+        $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->paginate(3);
 
         return view(('user.home'), compact('user_info', 'user_bookings', 'upcoming_events'));
     }
@@ -115,9 +119,9 @@ class UserController extends Controller
                     'desk_id' => $desk_id,
                     'date' => $date
                 ];
-    
+
                 $booking_add = Booking::create($booking);
-    
+
                 if($booking_add) {
                     $user_info = User::where('id', '=', $user_id)->first();
 
@@ -142,6 +146,17 @@ class UserController extends Controller
         } else {
             return back()->with('notAvailable','Invalid date.');
         }
+    }
+
+
+    /**
+     *  SUPPORT
+    **/ 
+    public function support($user_id)
+    {
+        $user_info = User::where('id', '=', $user_id)->first();
+
+        return view(('user.support'), compact('user_info'));
     }
 }
 

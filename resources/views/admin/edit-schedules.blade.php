@@ -39,13 +39,15 @@
                 <input type="date" id="date" name="date" value="{{ $event_info->date }}">
                 <p class="error text-md-center" style="color: red;">@error('date'){{ $message }} @enderror</p>
 
-                <label>Start Time: </label>
-                <input type="time" id="startTime" name="startTime" value="{{ $event_info->start_time }}">
-                <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
+                <div class="edit-date">
+                    <label>Start Time: </label>
+                    <input type="time" id="startTime" name="startTime" value="{{ $event_info->start_time }}">
+                    <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
 
-                <label>End Time: </label>
-                <input type="time" id="endTime" name="endTime" value="{{ $event_info->end_time }}">
-                <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+                    <label>End Time: </label>
+                    <input type="time" id="endTime" name="endTime" value="{{ $event_info->end_time }}">
+                    <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+                </div>
 
                 <button class="button"> Save </button>
             </form>

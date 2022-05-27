@@ -1,0 +1,149 @@
+body {
+  color: rgb(24, 24, 24);
+  font-family: "Red Hat Display";
+}
+
+.supp-header {
+  position: relative;
+  height: 24px;
+  left: 200px;
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
+  color: #226acc;
+  line-height: 24px;
+}
+
+.supp-subhead {
+  position: relative;
+  /* margin-top: 120px; */
+  left: 200px;
+  color: #226acc;
+  font-family: "Red Hat Display";
+  font-size: 20px;
+  width: 650px;
+}
+
+div + div {
+  clear: both;
+}
+
+p {
+  line-height: 1.4em;
+  color: #1b1b1b;
+}
+
+.faq-title {
+  color: #226acc;
+  font-size: 2em;
+  margin: 0.4em 0;
+}
+
+div.seperator {
+  width: 7.5em;
+  background-color: #226acc;
+  height: 0.17em;
+  margin-left: -1.8em;
+}
+
+.faq-list > div {
+  border-bottom: 0.07em solid #226acc;
+  padding: 1.5em 0em;
+}
+
+.faq-list > div:last-child {
+  border: unset;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+summary:hover {
+  color: #226acc;
+}
+
+details[open] summary ~ * {
+  animation: sweep 0.5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 55px;
+  }
+}
+
+details[open] summary {
+  color: #226acc;
+}
+
+details[open] p {
+  border-left: 3px solid #226acc;
+  margin-left: 55px;
+  padding-left: 25px;
+  opacity: 100;
+  transition: all 3s ease;
+}
+
+details[open] summary:after {
+  content: "-";
+  font-size: 3.2em;
+  margin: -33px 0.35em 0 0;
+  font-weight: 200;
+}
+
+.faq-body {
+  position: relative;
+  left: 200px;
+  width: 60em;
+  /* margin: 4em auto; */
+  border-radius: 0.5em;
+  padding: 3em;
+  background-color: #e5eafc;
+  margin-bottom: 125px;
+}
+
+.faq-list {
+  width: 55em;
+  margin: 1em auto;
+  padding: 2em 0;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:after {
+  background: transparent;
+  border-radius: 0.3em;
+  content: "+";
+  color: #226acc;
+  float: left;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: -0.3em 0.65em 0 0;
+  padding: 0;
+  text-align: center;
+  width: 25px;
+}

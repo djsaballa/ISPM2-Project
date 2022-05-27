@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "@flaticon/flaticon-uicons": "^1.7.0",
         "bootstrap-icons": "^1.8.1"
     }
 }

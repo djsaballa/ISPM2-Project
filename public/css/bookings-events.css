@@ -217,13 +217,26 @@ footer {
 }
 
 .add-schedule-box {
+  border-radius: 20px;
   background-color: #eaeefb;
   position: relative;
   margin: auto;
+  height: 50%;
   width: 70%;
   padding: 10px;
-  font-family: "Moon 2.0";
+  font-family: "Red Hat Display";
   color: #226acc;
+  margin-bottom: 125px;
+}
+
+.add-date {
+  width: 20%;
+  columns: 2;
+}
+
+.text-md-center {
+  margin-top: -10px;
+  margin-bottom: 30px;
 }
 
 /** EDIT UPCOMING EVENTS **/
@@ -249,12 +262,11 @@ footer {
 }
 
 .schedule-box-container {
-  margin-top: 50px;
   margin-bottom: 125px;
 }
 
 .edit-schedule-box {
-  height: 450px;
+  height: 50%;
   border-radius: 20px;
   position: relative;
   margin: auto;
@@ -263,6 +275,11 @@ footer {
   color: #226acc;
   background-color: #eaeefb;
   font-family: "Red Hat Display";
+}
+
+.edit-date {
+  width: 30%;
+  columns: 2;
 }
 
 #event-title {
@@ -281,6 +298,25 @@ input {
   border-style: none;
   margin: 8px 0;
   display: block;
+}
+
+.error {
+  margin-left: 15%;
+  text-align: left;
+  margin-bottom: 0;
+  padding: 10px 0px 10px 0px;
+  border-radius: 10px;
+  height: 100%;
+  font-family: "Red Hat Display";
+  width: 30%;
+}
+
+.bookings-cncl-btn {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 /** END **/

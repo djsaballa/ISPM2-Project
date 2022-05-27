@@ -37,14 +37,14 @@ class Booking extends Model
         return $this->id;
     }
 
-    public function getUserFullName($user_id)
+    public static function getUserFullName($user_id)
     {
         $userFullName = User::getFullName($user_id);
 
         return $userFullName;
     }
 
-    public function getSeatNumber($desk_id) 
+    public static function getSeatNumber($desk_id) 
     {
         $seatNumber = Desk::getSeatNumber($desk_id);
 

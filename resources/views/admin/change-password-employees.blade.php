@@ -19,19 +19,19 @@
         @include('components.sidenavAdmin')
     </sideNav>
 
-    <h1 class="change-pass-header">Change Password</h1>
+    <h1 class="change-pass-header">CHANGE PASSWORD</h1>
 
     <form class="change-pass-box" method="POST" action="{{ route('admin_update_passwords') }}">
         @csrf
         <input type="hidden" id="userId" name="userId" value="{{ $user_info->id }}">
 
         <label>New Password: </label>
-        <input type="text" id="newPassword" name="newPassword">
+        <input class="chng-pass" type="text" id="newPassword" name="newPassword">
         <p class="error" style="color: red;">@error('newPassword'){{ $message }} @enderror</p>
         <label>Confirm Password: </label>
         <input type="password" id="comfirmNewPassword" name="comfirmNewPassword">
         <p class="error" style="color: red;">@error('comfirmNewPassword'){{ $message }} @enderror</p>
-        
+
         <button class="button"> Change Password </button>
     </form>
 

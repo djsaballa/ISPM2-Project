@@ -41,7 +41,7 @@ class User extends Authenticatable
         return $this->id;
     }
 
-    public function getFullName($user_id)
+    public static function getFullName($user_id)
     {
         $user = User::find($user_id);
         $firstName = $user->first_name;

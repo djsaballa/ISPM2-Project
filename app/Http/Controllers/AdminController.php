@@ -181,7 +181,7 @@ class AdminController extends Controller
     **/
     public function employees(Request $request)
     {
-        $employees = User::all();
+        $employees = User::orderBy('last_name', 'ASC')->get();
 
         return view(('admin.list-of-employees'), compact('employees'));
     }
@@ -245,25 +245,27 @@ class AdminController extends Controller
     // Save Upcoming Event
     public function saveSchedules(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'eventTitle' => 'required',
             'desc' => 'required',
             'date' => 'required|date_format:Y-m-d',
             'startTime' => 'nullable|date_format:H:i:s',
             'endTime' => 'nullable|date_format:H:i:s'
         ],
-        [
+            [
             'eventTitle.required' => 'Event Title is required',
             'desc.required' => 'Description is required',
             'date.required' => 'Date is required',
             'date.date_format' => 'Incorrect date format',
             'startTime.date_format' => 'Incorrect time format',
             'endTime.date_format' => 'Incorrect time format',
-        ]);
+        ]
+        );
 
         $event_title = $request->eventTitle;
         $description = $request->desc;
-        $date = $request->date;
+        $date = date_create($request->date);
         $start_time = $request->startTime;
         $end_time = $request->endTime;
         $upcoming_event = [
@@ -274,33 +276,46 @@ class AdminController extends Controller
             'end_time' => $end_time
         ];
 
-        if(!is_null($upcoming_event)) {
-            $upcoming_event_add = UpcomingEvent::create($upcoming_event);
+        $today = new DateTime('now');
+        $date_diff = date_diff($today, $date);
 
-            if($upcoming_event_add) {
-                Session::flash('succesful-add', 'Added Upcoming Event successfully.');
+        $date_verificaiton = $date_diff->format('%R%a');
 
-                $now = Carbon::now('Asia/Manila')->format('Y-m-d');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
-    
-                return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+        if ($date_verificaiton > 0) {
+            if (!is_null($upcoming_event)) {
+                $upcoming_event_add = UpcomingEvent::create($upcoming_event);
+
+                if ($upcoming_event_add) {
+                    Session::flash('succesful-add', 'Added Upcoming Event successfully.');
+
+                    $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                    $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
+                    
+
+                    return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+                } else {
+                    Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
+
+                    $now = Carbon::now('Asia/Manila')->format('Y-m-d');
+                    $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
+                    
+
+                    return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+                }
             } else {
                 Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
 
                 $now = Carbon::now('Asia/Manila')->format('Y-m-d');
-                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
-    
+                $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();
+                
+
                 return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
             }
         } else {
-            Session::flash('unsuccesful-add', 'Adding of Upcoming Event is unsuccessful.');
-
-            $now = Carbon::now('Asia/Manila')->format('Y-m-d');
-            $upcoming_events = UpcomingEvent::orderBy('date', 'ASC')->whereDate('date', '>=', $now)->get();;
-
-            return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
+            return back()->with('unsuccessful-add','Invalid Date.');
         }
     }
+
 
     // Edit Upcoming Events
     public function editSchedules($event_id)
@@ -401,5 +416,13 @@ class AdminController extends Controller
 
             return view(('admin.list-of-upcoming-events'), compact('upcoming_events'));
         }
+    }
+
+    /**
+     *  SUPPORT
+    **/ 
+    public function support()
+    {
+        return view(('admin.support'));
     }
 }

@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <title>List of Employees</title>
+  
+      <!-- FAVICON -->
+      <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
+  
+    <title>eMachine | List of Employees</title>
 </head>
 
 <body>

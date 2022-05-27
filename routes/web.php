@@ -46,6 +46,9 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
       Route::post('/admin-update-schedules', [AdminController::class, 'updateSchedules'])->name('admin_update_schedules');
       // DELETE UPCOMING EVENT
       Route::post('/admin-delete-schedules/{event_id}', [AdminController::class, 'deleteSchedules'])->name('admin_delete_schedules');
+  // SUPPORT
+  Route::get('/admin-support', [AdminController::class, 'support'])->name('admin_support');
+
 
 // USER
   // HOME
@@ -58,5 +61,6 @@ Route::post('/login-auth', [AdminController::class, 'loginAuth'])->name('login_a
   Route::get('/user-map/{user_id}', [UserController::class, 'map'])->name('user_map');
         // MAKE BOOKING
         Route::POST('/user-make-booking', [UserController::class, 'makeBooking'])->name('user_make_booking');
-
+  // SUPPORT
+  Route::get('/user-support/{user_id}', [UserController::class, 'support'])->name('user_support');
 

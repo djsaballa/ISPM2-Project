@@ -33,7 +33,7 @@
 
 
         <!-- LOGO -->
-        <a href="/user-home"> <img src="{{ asset('images/E_White.svg') }}" class="logo" alt="logo"></a>
+        <a href="{{ route('user_home', $user_info->id) }}"> <img src="{{ asset('images/E_White.svg') }}" class="logo" alt="logo"></a>
 
         <ul class="navv">
 
@@ -61,7 +61,7 @@
 
             <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-interrogation {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_bookings', $user_info->id) }}">
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('user_support', $user_info->id) }}">
                     Support
                 </a>
             </li>

@@ -16,7 +16,9 @@
         @include('components.sidenavAdmin')
     </sideNav>
 
-    <h1 class="add-schedule-header"> Add Upcoming Events </h1>
+    <h1 class="add-schedule-header"> ADD UPCOMING EVENTS </h1>
+
+    <p class="error" style="color: red; text-align:center;">{{ Session::get('unsuccessful-add') }}</p>
 
     <form class="add-schedule-box" method="POST" action="{{ route('admin_save_schedules') }}">
         @csrf
@@ -34,15 +36,17 @@
 
         <p>(If you desire to have a Start Time or End Time, then all Hour, Minute, and Period of Time must be filled out)</p>
 
-        <label>Start Time: </label>
-        <input type="time" id="startTime" name="startTime">
-        <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
+        <div class="add-date">
+            <label>Start Time: </label>
+            <input type="time" id="startTime" name="startTime">
+            <p class="error text-md-center" style="color: red;">@error('startTime'){{ $message }} @enderror</p>
 
-        <label>End Time: </label>
-        <input type="time" id="endTime" name="endTime">
-        <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+            <label>End Time: </label>
+            <input type="time" id="endTime" name="endTime">
+            <p class="error text-md-center" style="color: red;">@error('endTime'){{ $message }} @enderror</p>
+        </div>
 
-        <button class="button"> Save </button>
+        <button class="button"> Add </button>
     </form>
 
     <footer>

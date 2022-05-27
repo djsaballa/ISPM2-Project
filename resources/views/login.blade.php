@@ -2,12 +2,17 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>eMachine | Login</title>
 
     <!-- ICONS -->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
 </head>
@@ -22,16 +27,16 @@
                 <text class="login-title">Welcome</text>
                 <text class="login-subtitle">Reserve your seat</text>
             </div>
-            <form method="POST" action="{{ route('login_auth') }}"> 
+            <form method="POST" action="{{ route('login_auth') }}">
                 @csrf
                 <div class="inner-addon left-addon">
-                    <i class="fi fi-sr-envelope"></i>
+                    <i class="fi fi-br-envelope"></i>
                     <input type="text" placeholder="Email" id="email" name="email">
                 </div>
                 <span class="error" style="color: red;">@error('email'){{ $message }} @enderror</span>
                 <span class="error" style="color: red;">{{ Session::get('failEmail') }}</span>
                 <div class="inner-addon left-addon">
-                    <i class="fi fi-sr-lock"></i>
+                    <i class="fi fi-br-lock"></i>
                     <input type="password" placeholder="Password" id="password" name="password">
                 </div>
                 <span class="error" style="color: red;">@error('password'){{ $message }} @enderror</span>

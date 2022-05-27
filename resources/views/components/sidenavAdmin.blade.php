@@ -16,6 +16,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 
+    
     <style>
         .active {
             color: #226acc;
@@ -33,7 +34,7 @@
 
     <div class="div-nav">
         <!-- LOGO -->
-        <a href="/admin-home"> <img src="{{ asset('images/logo135.png') }}" class="logo" alt="logo"></a>
+        <a href="/admin-home"> <img src="{{ asset('images/E_White.svg') }}" class="logo" alt="logo"></a>
 
         <ul class="navv">
             <li class="navv-item {{ request()->is('/') ? 'active2' : '' }}">
@@ -57,7 +58,14 @@
             <li class="navv-item {{ request()->is('schedules') ? 'active2' : '' }}">
                 <i class="fi fi-br-calendar {{ request()->is('schedules') ? 'active' : '' }}"></i>
                 <a class="navv-link  {{ request()->is('schedules') ? 'active' : '' }}" href="{{ route('admin_upcoming_events') }}">
-                    Upcoming Event
+                    {!! 'Upcoming Event' !!}
+                </a>
+            </li>
+
+            <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
+                <i class="fi fi-br-interrogation {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('admin_support') }}">
+                    Support
                 </a>
             </li>
 

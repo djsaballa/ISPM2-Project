@@ -9,6 +9,10 @@
     <!-- ICONS -->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
+
     <style>
         /* Set a style for all buttons */
         .modal button {
@@ -23,11 +27,12 @@
         }
 
         .modal button:hover {
-            opacity:1;
+            opacity: 1;
         }
 
         /* Float cancel and delete buttons and add an equal width */
-        .modal .cancelbtn, .modal .deletebtn {
+        .modal .cancelbtn,
+        .modal .deletebtn {
             float: left;
             width: 50%;
         }
@@ -51,14 +56,20 @@
 
         /* The Modal (background) */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
             background-color: #474e5d;
             padding-top: 50px;
         }
@@ -66,9 +77,11 @@
         /* Modal Content/Box */
         .modal-content {
             background-color: #fefefe;
-            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 80%;
+            /* Could be more or less, depending on screen size */
         }
 
         /* Style the horizontal ruler */
@@ -76,7 +89,7 @@
             border: 1px solid #f1f1f1;
             margin-bottom: 25px;
         }
-        
+
         /* The Modal Close Button (x) */
         .close {
             position: absolute;
@@ -102,7 +115,9 @@
 
         /* Change styles for cancel button and delete button on extra small screens */
         @media screen and (max-width: 300px) {
-            .cancelbtn, .deletebtn {
+
+            .cancelbtn,
+            .deletebtn {
                 width: 100%;
             }
         }
@@ -120,24 +135,24 @@
         <h1 class="bookings-header">MY BOOKINGS</h1>
 
         @if (Session::has('succesful-add'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-add') !!}</p>
-            </div>        
+        <div role="alert">
+            <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-add') !!}</p>
+        </div>
         @endif
         @if (Session::has('unsuccesful-add'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-add') !!}</p>
-            </div>
+        <div role="alert">
+            <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-add') !!}</p>
+        </div>
         @endif
         @if (Session::has('succesful-deletion'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-deletion') !!}</p>
-            </div>        
+        <div role="alert">
+            <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-deletion') !!}</p>
+        </div>
         @endif
         @if (Session::has('unsuccesful-deletion'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-deletion') !!}</p>
-            </div>
+        <div role="alert">
+            <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-deletion') !!}</p>
+        </div>
         @endif
 
         <div class="bookings-table-container">
@@ -146,8 +161,8 @@
                     <tr>
                         <th class="profile-image-header">Date</th>
                         <th class="profile-image-header">Desk Number</th>
-                        <th class="profile-image-header "> 
-                            <a href="{{ route('user_map', $user_info->id) }}"> 
+                        <th class="profile-image-header ">
+                            <a href="{{ route('user_map', $user_info->id) }}">
                                 <button class="bookings-btn" type="button">Add</button>
                             </a>
                         </th>
@@ -168,12 +183,12 @@
                                 <form class="modal-content" method="POST" action="{{ route('user_cancel_booking', [$user_info->id, $booking->id]) }}">
                                     @csrf
                                     <div class="container">
-                                    <h1>Cancel Booking</h1>
-                                    <p>Are you sure you want to cancel this booking?</p>
-                                    <div class="clearfix">
-                                        <button type="button" onClick="document.getElementById('deleteModal').style.display='none'" class="cancelbtn">No</button>
-                                        <button type="submit" class="deletebtn">Cancel</button>
-                                    </div>
+                                        <h1>Cancel Booking</h1>
+                                        <p>Are you sure you want to cancel this booking?</p>
+                                        <div class="clearfix">
+                                            <button type="button" onClick="document.getElementById('deleteModal').style.display='none'" class="cancelbtn">No</button>
+                                            <button type="submit" class="deletebtn">Cancel</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -183,6 +198,7 @@
                 </tbody>
             </table>
         </div>
+
         <footer>
             @include('components.footer')
         </footer>
