@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+
     <title>Footer</title>
+
 </head>
 
 <body>
@@ -29,11 +33,11 @@
 
         <div class="right location">
             <h4 class="center footer-header">Connect With Us</h4>
-            <!-- <ul class="">
-                    <li> <a href="#">New York, NY 10012, US</a></li>
-                    <li> <a href="#">info@example.com</a></li>
-                    <li> <a href="#">+01 234 567 89</a></li>
-                </ul> -->
+            <ul class="footer-icon">
+                <li> <a href="https://facebook.com/"> <i class="fit fi-brands-facebook"></i></a></li>
+                <li> <a href="https://twitter.com/"> <i class="fit fi-brands-twitter"></i></a></li>
+                <li> <a href="https://linkedin.com/"> <i class="fit fi-brands-linkedin"></i></a></li>
+            </ul>
         </div>
         <!-- <div class="right location">
                 <h4 class="footer-header">Connect With Us</h4>

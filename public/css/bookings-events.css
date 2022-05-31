@@ -320,3 +320,19 @@ button:hover {
 }
 
 /** END **/
+
+/** LIST OF TABLES **/
+
+.enable-btn {
+  border: none;
+  text-align: center;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+  color: #fff;
+
+  border-radius: 25px;
+  background-color: #5ae465;
+  font-family: "Red Hat Display";
+}

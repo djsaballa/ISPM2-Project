@@ -80,19 +80,21 @@ body {
 }
 
 .home-header {
+  position: relative;
+  height: 24px;
+  left: 200px;
+  font-family: "Moon 2.0";
+  font-style: normal;
+  font-weight: 700;
   color: #226acc;
-  font-size: 50px;
-  text-align: left;
-  padding-left: 180px;
-  text-transform: uppercase;
-  font-family: "Moon 2.0", sans-serif;
+  line-height: 24px;
 }
 
 .booking-header {
   position: relative;
   width: 100%;
   height: 24px;
-  left: 180px;
+  left: 580px;
   font-family: "Moon 2.0";
   font-style: normal;
   font-weight: 700;
@@ -103,12 +105,15 @@ body {
 }
 
 .home-bookings {
-  padding-top: 30px;
+  margin-top: -100px;
+  margin-bottom: 125px;
+
+  /* padding-top: 30px; */
   display: inline-block;
   /* background-color: #00b4cc; */
   /* display: flex;
   flex-direction: row; */
-  left: 180px;
+  left: 580px;
   /* width: 180px; */
   /* padding-top: 30px; */
   position: relative;
@@ -116,6 +121,7 @@ body {
 }
 
 .home-bookings-box {
+  display: block;
   margin-right: 30px;
   float: left;
   /* margin-left: 180px; */
@@ -191,7 +197,7 @@ body {
 
 .event-col {
   height: 60%;
-  top: -20px;
+  /* top: -10px; */
   padding-right: 250px;
   float: left;
   margin: 20px 0px 0px 30px;
@@ -201,12 +207,13 @@ body {
 
 .upcomingEvents-div {
   display: inline-block;
-  margin-top: 10%;
+  margin-top: 30px;
   height: 200px;
   width: 100%;
   padding-top: 1px;
   padding-left: 10px;
   margin-left: 160px;
+  margin-bottom: 70px;
   background-color: #e5eafc;
 }
 
@@ -480,7 +487,7 @@ body {
   z-index: -1;
   /* column-count: 3; */
   padding-left: 10vh;
-  margin-top: auto;
+  margin-top: 130px;
 }
 
 .footer-header {
@@ -497,6 +504,17 @@ a {
   font-size: 15px;
   text-decoration: none;
   font-family: "Red Hat Display";
+}
+
+.footer-icon {
+  margin-left: -30px;
+  margin-top: -10px;
+  background-color: #00b4cc;
+}
+
+.fit {
+  float: left;
+  margin-right: 10px;
 }
 
 .about-company {
@@ -530,7 +548,8 @@ a {
 
 .links-list {
   float: left;
-  padding-left: -100px;
+  margin-left: -30px;
+  margin-top: -10px;
   left: 0;
   margin-top: -15px;
 }
@@ -855,3 +874,5 @@ button:hover {
   font-family: "Red Hat Display";
   width: 30%;
 }
+
+/** LIST OF TABLE **/

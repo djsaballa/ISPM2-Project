@@ -51,17 +51,18 @@
 
         .elegant-calencar {
             border-radius: 20px;
-            width: 35em;
-            height: 30em;
+            width: 20em;
+            height: 25em;
             border: 1px solid #c9c9c9;
             -webkit-box-shadow: 10 10 10 15px #c9c9c9;
             box-shadow: 0 0 5px #c9c9c9;
             text-align: center;
             margin: 4em auto;
-            position: relative;
-            /* margin-top: 20px; */
+            position: absolute;
+            margin-top: 10px;
             margin-left: 180px;
             background-color: white;
+            margin-bottom: 125px;
         }
 
         #header {
@@ -119,26 +120,26 @@
             margin-top: -20px;
             /* background-color: #c9c9c9; */
             float: left;
-            width: 27em;
+            width: 12em;
         }
 
         .head-day {
             font-weight: bold;
             margin-top: 40px;
-            font-size: 5em;
+            font-size: 75px;
             line-height: 1;
             color: #fff;
         }
 
         .head-month {
             margin-top: 1px;
-            font-size: 2em;
+            font-size: 25px;
             line-height: 1;
             color: #fff;
         }
 
         #calendar {
-            height: 70%;
+            height: 60%;
             width: 70%;
             margin: 0 auto;
         }
@@ -264,31 +265,8 @@
         </sideNav>
 
         <div class="main-content">
-            <h1 class="home-header">
-                {!! 'You don’t have <br>
-                any bookings yet' !!}
-            </h1>
 
-            <!-- <h1 class="home-header">
-                    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-                </h1> -->
-
-
-            <div class="booking-header">
-                YOUR BOOKINGS
-            </div>
-
-            @foreach ($user_bookings as $user_booking)
-            <div class="home-bookings">
-                <div class="home-bookings-box">
-                    <h3 class="home-booking-desk">Desk</h3>
-                    <p class="home-desk-num">{{ $user_booking->desk_id }}</p>
-                    <!-- <h3 class="home-booking-mon">Date</h3> -->
-                    <p class="home-booking-date">{{ $user_booking->date }}</p>
-                    <img src="{{ asset('images/Desk.svg') }}" class="box-desk-img">
-                </div>
-            </div>
-            @endforeach
+            <h1 class="home-header">HOME</h1>
 
             <div class="upcomingEvents-div">
                 <h1 class="upcomingHeader">
@@ -313,6 +291,11 @@
                 </div>
                 @endforeach
             </div>
+
+            <div class="booking-header">
+                YOUR BOOKINGS
+            </div>
+
 
             <div class="elegant-calencar">
 
@@ -397,6 +380,22 @@
                     </table>
                 </div>
             </div>
+
+
+
+            @foreach ($user_bookings as $user_booking)
+            <div class="home-bookings">
+                <span class="home-bookings-box">
+                    <h3 class="home-booking-desk">Desk</h3>
+                    <p class="home-desk-num">{{ $user_booking->desk_id }}</p>
+                    <!-- <h3 class="home-booking-mon">Date</h3> -->
+                    <p class="home-booking-date">{{ $user_booking->date }}</p>
+                    <img src="{{ asset('images/Desk.svg') }}" class="box-desk-img">
+                </span>
+            </div>
+            @endforeach
+
+
 
         </div>
         <!-- </div> -->

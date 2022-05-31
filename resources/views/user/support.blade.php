@@ -31,7 +31,7 @@
             <div class="faq-list">
                 <div>
                     <details open>
-                        <summary title="How can I pay for my appointment?">How can I pay for my appointment?</summary>
+                        <summary title="How can I check my appointment?">How can I check my appointment?</summary>
                         <p class="faq-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo quod debitis ducimus iste soluta rerum ipsa consequuntur minus quae. Ea minus ex corporis, pariatur quia rerum sequi iusto odit enim expedita fugiat, assumenda molestiae earum iste blanditiis, ipsum ratione.</p>
                     </details>
                 </div>

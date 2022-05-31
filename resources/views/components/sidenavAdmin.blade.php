@@ -16,7 +16,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 
-    
+
     <style>
         .active {
             color: #226acc;
@@ -63,11 +63,20 @@
             </li>
 
             <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
+                <i class="fi fi-br-flame {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('admin_support') }}">
+                    Tables
+                </a>
+            </li>
+
+            <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-interrogation {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
                 <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('admin_support') }}">
                     Support
                 </a>
             </li>
+
+
 
             <!-- LOGOUT -->
             <li class="navv-item nav-last">

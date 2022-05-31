@@ -78,13 +78,14 @@
         @import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
 
         #currentTime {
+            border-radius: 20px;
             font-size: 3em;
             text-align: center;
             font-family: "Red Hat Display";
             font-weight: 200;
             padding-top: 25px;
             color: white;
-            background-color: #000000;
+            background-color: #226acc;
             box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
             width: 380px;
             height: 80px;
@@ -158,12 +159,15 @@
             top: -20px;
             left: 280px;
             background-color: white;
+            border-radius: 20px;
         }
 
         #header {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
             font-family: "Red Hat Display";
             height: 12em;
-            background-color: #2a3246;
+            background-color: #226acc;
             margin-bottom: 1em;
         }
 
@@ -196,21 +200,25 @@
         }
 
         .pre-button {
+            color: #fff;
             float: left;
             margin-left: 0.5em;
         }
 
         .next-button {
+            color: #fff;
             float: right;
             margin-right: 0.5em;
         }
 
         .head-info {
+            /* background-color: #c9c9c9; */
             float: left;
-            width: 16em;
+            width: 17em;
         }
 
         .head-day {
+            font-weight: bold;
             margin-top: 40px;
             font-size: 5em;
             line-height: 1;
@@ -305,8 +313,8 @@
         }
 
         #reset:hover {
-            color: #e66b6b;
-            border-color: #e66b6b;
+            color: #9ec1f7;
+            border-color: #9ec1f7;
         }
 
         #reset:active {
@@ -317,8 +325,8 @@
 
         .admin-bg {
             /* Full height */
-            height: 100%;
-
+            /* height: 100%; */
+            width: 100%;
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
