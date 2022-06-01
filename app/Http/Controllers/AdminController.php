@@ -186,6 +186,63 @@ class AdminController extends Controller
         return view(('admin.list-of-employees'), compact('employees'));
     }
 
+    // Add User
+    public function addUser(Request $request)
+    {
+        return view('admin.add-user');
+    }
+
+    // Save User
+    public function saveUser(Request $request)
+    {
+        $request->validate(
+            [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'dept' => 'required',
+            'phoneNumber' => 'required|numeric|min:10',
+            'password' => 'required|min:8'
+            ],
+            [
+            'firstName.required' => 'First Name is required',
+            'lastName.required' => 'Last Name is required',
+            'dept.required' => 'Department is required',
+            'phoneNumber.required' => 'Phone Number is required',
+            'phoneNumber.numeric' => 'Must be a valid phone number',
+            'password.required' => 'Password is required',
+            ]
+        );
+
+        $first_name = $request->firstName;
+        $last_name = $request->lastName;
+        $email = $first_name.$last_name."@emachine.com";
+        $password = $request->password;
+        $phone_number = $request-> phoneNumber;
+        $department = $request->dept;
+
+        $user = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $email,
+            'password' => $password,
+            'phone_number' => $phone_number,
+            'department' => $department,
+        ];
+
+        $user_add = User::create($user);
+        $employees = User::orderBy('last_name', 'ASC')->get();
+
+        if($user_add) {
+            Session::flash('succesful', 'User added successfully.');
+
+            return view(('admin.list-of-employees'), compact('employees'));                
+        } else {
+            Session::flash('unsuccesful', 'An error has occured, User has not been added.');
+
+            return view(('admin.list-of-employees'), compact('employees'));                
+        }
+    }
+
     // Change Password
     public function changePassword($user_id)
     {
@@ -207,18 +264,18 @@ class AdminController extends Controller
 
             if (!is_null($user_info)) {
                 $user_info->update(['password'=> $request->newPassword]);
-                Session::flash('succesful-change', 'Changed password successfully.');
-                $employees = User::all();
+                Session::flash('succesful', 'Changed password successfully.');
+                $employees = User::orderBy('last_name', 'ASC')->get();
 
                 return view(('admin.list-of-employees'), compact('employees'));
             } else { 
-                Session::flash('unsuccesful-change', 'Password change is unsuccessful.');
-                $employees = User::all();
+                Session::flash('unsuccesful', 'Password change is unsuccessful.');
+                $employees = User::orderBy('last_name', 'ASC')->get();
 
                 return view(('admin.list-of-employees'), compact('employees'));                
             }
         } else {
-            Session::flash('unsuccesful-change', 'Password change is unsuccessful.');
+            Session::flash('unsuccesful', 'Password change is unsuccessful.');
             $employees = User::all();
 
             return view(('admin.list-of-employees'), compact('employees'));

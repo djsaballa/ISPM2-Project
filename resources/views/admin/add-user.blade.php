@@ -20,30 +20,30 @@
 
     <p class="error" style="color: red; text-align:center;">{{ Session::get('unsuccessful-add') }}</p>
 
-    <form class="add-schedule-box" method="POST" action="{{ route('admin_save_schedules') }}">
+    <form class="add-schedule-box" method="POST" action="{{ route('admin_save_user') }}">
         @csrf
-        <label>Name: </label>
-        <input type="text" id="eventTitle" name="eventTitle" placeholder="Full Name">
-        <p class="error text-md-center" style="color: red;">@error('eventTitle'){{ $message }} @enderror</p>
+        <label>First Name: </label>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name">
+        <p class="error text-md-center" style="color: red;">@error('firstName'){{ $message }} @enderror</p>
+
+        <label>Last Name: </label>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+        <p class="error text-md-center" style="color: red;">@error('lastName'){{ $message }} @enderror</p>
 
         <label>Department: </label>
-        <input class="event-edit-input" type="text" id="desc" name="desc" placeholder="Department of Employee">
-        <p class="error text-md-center" style="color: red;">@error('desc'){{ $message }} @enderror</p>
-
-        <label>Email: </label>
-        <input type="text" id="date" name="">
+        <input class="event-edit-input" type="text" id="dept" name="dept" placeholder="Department of Employee">
+        <p class="error text-md-center" style="color: red;">@error('dept'){{ $message }} @enderror</p>
 
         <label>Phone Number: </label>
-        <input type="text" id="phnNumber" name="">
+        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+        <p class="error text-md-center" style="color: red;">@error('phoneNumber'){{ $message }} @enderror</p>
 
         <label>Password: </label>
-        <input type="text" id="addupass" name="">
+        <input type="text" id="password" name="password" placeholder="Enter Password">
+        <p class="error text-md-center" style="color: red;">@error('password'){{ $message }} @enderror</p>
 
 
-        <button class="button"> Add </button>
-        <a href="#">
-            <input class="button cncl-btn" type="button" value="Cancel">
-        </a>
+        <button type="submit" class="button"> Add </button>
     </form>
 
     <footer>

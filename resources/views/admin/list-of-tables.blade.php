@@ -53,7 +53,7 @@
                         <form method="POST" action="{{ route('admin_enable_tables') }}">
                             @csrf
                             <input type="hidden" id="deskId" name="deskId" value="{{ $desk->id }}">
-                            <button type="submit" class="button enable-btn">Enable</button>
+                            <button type="submit" class="button enable-btn" style=" background-color: #5dbea3">Enable</button>
                         </form>
                         <form method="POST" action="{{ route('admin_disable_tables') }}">
                             @csrf

@@ -21,14 +21,14 @@
 
     <h1 class="employee-header">EMPLOYEES</h1>
 
-    @if (Session::has('succesful-change'))
+    @if (Session::has('succesful'))
     <div role="alert">
-        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-change') !!}</p>
+        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful') !!}</p>
     </div>
     @endif
-    @if (Session::has('unsuccesful-change'))
+    @if (Session::has('unsuccesful'))
     <div role="alert">
-        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-change') !!}</p>
+        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful') !!}</p>
     </div>
     @endif
 
@@ -41,7 +41,7 @@
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>
-                    <a href="#">
+                    <a href="{{ route('admin_add_user') }}">
                         <button class="btn-addUser">Add User</button>
                     </a>
                 </th>
