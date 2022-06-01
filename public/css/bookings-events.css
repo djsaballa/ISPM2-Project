@@ -336,3 +336,43 @@ button:hover {
   background-color: #5ae465;
   font-family: "Red Hat Display";
 }
+
+.last-col {
+  width: 40%;
+  /* background-color: #5ae465; */
+}
+
+.cncl-btn {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  background-color: #2269cc;
+  font-family: "Red Hat Display";
+
+  border-radius: 25px;
+  color: #fff;
+  background-color: #709dde;
+}
+
+#dnum {
+  border-radius: 25px;
+  padding: 10px;
+}
+
+#availability {
+  background-color: #fff;
+  border: none;
+}

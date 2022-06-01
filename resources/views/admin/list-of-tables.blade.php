@@ -26,7 +26,7 @@
             <thead class="sched-table-header">
                 <tr>
                     <th>Seat Number</th>
-                    <th>Enabled</th>
+                    <th class="last-col">Enabled</th>
                     <th>
                         <a href="#">
                             <button class="button add2">Add Table</button>

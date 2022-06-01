@@ -23,16 +23,16 @@
 
 
     <form class="edit-book-box" method="POST" action="{{ route('admin_update_bookings', $booking_info->id) }}">
-    <p class="error" style="color: red; text-align:center;">{{ Session::get('notAvailable') }}</p>
+        <p class="error" style="color: red; text-align:center;">{{ Session::get('notAvailable') }}</p>
 
         @csrf
         <input type="hidden" id="bookingId" name="bookingId" value="{{ $booking_info->id }}">
 
         <label>Employee:</label>
-            <input type="text" id="fullName" name="fullName" value="{{ $booking_info->getUserFullName($booking_info->user_id) }}" readonly>            
-            <input type="hidden" id="userId" name="userId" value="{{ $booking_info->user_id }}">
+        <input type="text" id="fullName" name="fullName" value="{{ $booking_info->getUserFullName($booking_info->user_id) }}" readonly>
+        <input type="hidden" id="userId" name="userId" value="{{ $booking_info->user_id }}">
 
-            
+
         <p class="error text-md-center" style="color: red;">@error('userId'){{ $message }} @enderror</p>
 
         <label>Desk: </label>
@@ -50,7 +50,7 @@
 
         <button class="button"> Save </button>
         <a href="{{ route('admin_bookings') }}">
-            <input type="button" value="Cancel">
+            <input class="cncl-btn" type="button" value="Cancel">
         </a>
     </form>
 

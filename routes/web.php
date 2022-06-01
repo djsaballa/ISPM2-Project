@@ -64,7 +64,11 @@ Route::POST('/user-make-booking', [UserController::class, 'makeBooking'])->name(
 // SUPPORT
 Route::get('/user-support/{user_id}', [UserController::class, 'support'])->name('user_support');
 
-// DELETE THIS
+// DELETE THESE
 Route::get('/admin-list-tables', function () {
   return view('admin.list-of-tables');
+});
+
+Route::get('/admin-add-tables', function () {
+  return view('admin.add-tables');
 });
