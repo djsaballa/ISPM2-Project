@@ -373,6 +373,7 @@ button:hover {
 }
 
 #availability {
+  width: 20%;
   background-color: #fff;
   border: none;
 }
