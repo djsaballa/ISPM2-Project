@@ -22,26 +22,27 @@
     <h1 class="edit-book-header">ADD TABLES</h1>
 
 
-    <form class="edit-book-box" method="POST" action="">
+    <form class="edit-book-box" method="POST" action="{{ route('admin_save_tables') }}">
         @csrf
-        <input type="hidden" id="bookingId" name="bookingId" value="">
 
-        <label>Number of Desk: </label>
-        <input type="number" id="dnum" name="firstname">
+        <label>Number of Desk to Be Added: </label>
+        <input type="number" id="dnum" name="dnum">
+        <p class="error text-md-center" style="color: red;">@error('dnum'){{ $message }} @enderror</p>
 
         <p class="error text-md-center" style="color: red;"></p>
 
-        <label class="edit-top-margin">Availability: </label>
+        <label class="edit-top-margin">Status: </label>
         <br>
-        <select type="date" id="availability" name="availability" value="">
-            <p class="error text-md-center" style="color: red;"></p>
-            <option value="enable">Enable</option>
-            <option value="disable">Disable</option>
+        <select id="status" name="status">
+            <option value="1" selected>Enabled</option>
+            <option value="0">Disabled</option>
         </select>
+        <p class="error text-md-center" style="color: red;">@error('status'){{ $message }} @enderror</p>
+
         <br>
         <button class="button "> Save </button>
-        <a href="{{ route('admin_bookings') }}">
-            <input class="button cncl-btn" type="button" value="Cancel">
+        <a href="{{ route('admin_tables') }}">
+            <input class="button cncl-btn" type="button" style=" background-color: #ff6d6d" value="Cancel">
         </a>
     </form>
 

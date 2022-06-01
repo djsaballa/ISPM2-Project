@@ -76,7 +76,7 @@ class AdminController extends Controller
     public function editBookings($booking_id)
     {
         $booking_info = Booking::find($booking_id);
-        $desks = Desk::all();
+        $desks = Desk::where('status', '=', '1')->get();
 
         return view(('admin.edit-bookings'), compact('desks', 'booking_info'));
     }
@@ -421,8 +421,98 @@ class AdminController extends Controller
     /**
      *  SUPPORT
     **/ 
-    public function support()
+    public function support(Request $request)
     {
         return view(('admin.support'));
+    }
+
+     /**
+     *  LIST Of TABLES
+    **/ 
+    public function tables(Request $request)
+    {   
+        $desks = Desk::all();
+
+        return view(('admin.list-of-tables'), compact('desks'));
+    }
+
+    // Add Tables
+    public function addTables(Request $request) {
+        return view(('admin.add-tables'));
+    }
+
+    // Save Tables
+    public function  saveTables(Request $request) {
+        $request->validate([
+            'dnum' => 'required',
+            'status' => 'required',
+        ],
+        [
+            'dnum.required' => 'Desk to be added is required',
+            'status.required' => 'Status is required',
+        ]);
+
+        $dnum = $request->dnum;
+        $status = $request->status;
+
+        for($i = 1; $i <=($dnum); $i++) {
+            $last_seat_number = Desk::orderBy('seat_number', 'DESC')->first()->seat_number;
+
+            for($j = 1; $j <= ($last_seat_number + 1); $j++) {
+                $desk = [
+                    'seat_number' => $j,
+                    'status' => $status
+                ];
+            }
+            $desk_add = Desk::create($desk);
+        }
+
+        if ($desk_add) {
+            Session::flash('table', 'Tables added succesfully');
+            $desks = Desk::all();
+
+            return view(('admin.list-of-tables'), compact('desks'));
+        }
+        
+    }
+
+    public function  enableTables(Request $request) {
+        $desk_id = $request->deskId;
+        $desk = Desk::find($desk_id);
+        $status = $desk->status;
+
+        if(!$status) {
+            $desk->update(['status'=> '1']);
+
+            Session::flash('table', 'Desk is now enabled');
+            $desks = Desk::all();
+
+            return view(('admin.list-of-tables'), compact('desks'));
+        } else {
+            Session::flash('table', 'Desk is already enabled');
+            $desks = Desk::all();
+
+            return view(('admin.list-of-tables'), compact('desks'));
+        }
+    }
+
+    public function  disableTables(Request $request) {
+        $desk_id = $request->deskId;
+        $desk = Desk::find($desk_id);
+        $status = $desk->status;
+
+        if($status) {
+            $desk->update(['status'=> '0']);
+
+            Session::flash('table', 'Desk is now disabled');
+            $desks = Desk::all();
+
+            return view(('admin.list-of-tables'), compact('desks'));
+        } else {
+            Session::flash('table', 'Desk is already disabled');
+            $desks = Desk::all();
+
+            return view(('admin.list-of-tables'), compact('desks'));
+        }
     }
 }

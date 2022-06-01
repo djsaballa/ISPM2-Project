@@ -64,8 +64,8 @@
 
             <li class="navv-item {{ request()->is('user_bookings') ? 'active2' : '' }}">
                 <i class="fi fi-br-flame {{ request()->is('user_bookings') ? 'active' : '' }}"></i>
-                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('admin_support') }}">
-                    Tables
+                <a class="navv-link {{ request()->is('user_bookings') ? 'active' : '' }}" href="{{ route('admin_tables') }}">
+                    Desks
                 </a>
             </li>
 
