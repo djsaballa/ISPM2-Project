@@ -72,3 +72,9 @@ Route::get('/user-map/{user_id}', [UserController::class, 'map'])->name('user_ma
 Route::POST('/user-make-booking', [UserController::class, 'makeBooking'])->name('user_make_booking');
 // SUPPORT
 Route::get('/user-support/{user_id}', [UserController::class, 'support'])->name('user_support');
+
+
+// DELETE THIS LTER
+Route::get('/admin-add-user', function () {
+    return view('admin.add-user');
+});
