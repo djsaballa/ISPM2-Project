@@ -484,12 +484,12 @@ class AdminController extends Controller
         if(!$status) {
             $desk->update(['status'=> '1']);
 
-            Session::flash('table', 'Desk is now enabled');
+            Session::flash('table', 'Desk '. $desk_id .' is now enabled');
             $desks = Desk::all();
 
             return view(('admin.list-of-tables'), compact('desks'));
         } else {
-            Session::flash('table', 'Desk is already enabled');
+            Session::flash('table', 'Desk '. $desk_id .' is already enabled');
             $desks = Desk::all();
 
             return view(('admin.list-of-tables'), compact('desks'));
@@ -504,12 +504,12 @@ class AdminController extends Controller
         if($status) {
             $desk->update(['status'=> '0']);
 
-            Session::flash('table', 'Desk is now disabled');
+            Session::flash('table', 'Desk '. $desk_id .' is now disabled');
             $desks = Desk::all();
 
             return view(('admin.list-of-tables'), compact('desks'));
         } else {
-            Session::flash('table', 'Desk is already disabled');
+            Session::flash('table', 'Desk '. $desk_id .' is already disabled');
             $desks = Desk::all();
 
             return view(('admin.list-of-tables'), compact('desks'));
