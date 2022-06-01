@@ -21,6 +21,7 @@ class DeskSeeder extends Seeder
             if (!$firstline) {
                 Desk::create([
                     "seat_number" => $data['0'],
+                    "status" => $data['1']
                 ]);
             }
             $firstline = false;

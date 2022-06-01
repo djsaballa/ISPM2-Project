@@ -84,7 +84,7 @@ class UserController extends Controller
     public function map($user_id)
     {
         $user_info = User::where('id', '=', $user_id)->first();
-        $desks = Desk::all();
+        $desks = Desk::where('status', '=', '1')->get();
 
         return view(('user.map'), compact('user_info', 'desks'));
     }

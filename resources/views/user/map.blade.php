@@ -274,11 +274,11 @@
             <h1 class="map-booking-header">NEW BOOKING</h1>
 
             <input type="hidden" id="userId" name="userId" value="{{ $user_info->id }}">
+            <p class="error-map text-md-center" style="color: red;">{{ Session::get('notAvailable') }}</p>
 
             <label class="form-title" for="fname">Date</label>
             <br>
             <input class="form-title-input" type="date" id="date" name="date" value="{{ old('date') }}">
-            <p class="error-map text-md-center" style="color: red;">{{ Session::get('notAvailable') }}</p>
             <p class="error-map text-md-center" style="color: red;">@error('date'){{ $message }} @enderror</p>
 
             <br>

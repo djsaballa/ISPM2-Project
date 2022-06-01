@@ -46,6 +46,15 @@ Route::get('/admin-edit-schedules/{event_id}', [AdminController::class, 'editSch
 Route::post('/admin-update-schedules', [AdminController::class, 'updateSchedules'])->name('admin_update_schedules');
 // DELETE UPCOMING EVENT
 Route::post('/admin-delete-schedules/{event_id}', [AdminController::class, 'deleteSchedules'])->name('admin_delete_schedules');
+//LIST OF TABLES
+Route::get('/admin-tables', [AdminController::class, 'tables'])->name('admin_tables');
+// ADD TABLE
+Route::get('/admin-add-tables', [AdminController::class, 'addTables'])->name('admin_add_tables');
+Route::post('/admin-save-tables', [AdminController::class, 'saveTables'])->name('admin_save_tables');
+// ENABLE TABLE
+Route::post('/admin-enable-tables', [AdminController::class, 'enableTables'])->name('admin_enable_tables');
+// DISABLE TABLE
+Route::post('/admin-disable-tables', [AdminController::class, 'disableTables'])->name('admin_disable_tables');
 // SUPPORT
 Route::get('/admin-support', [AdminController::class, 'support'])->name('admin_support');
 
@@ -63,16 +72,3 @@ Route::get('/user-map/{user_id}', [UserController::class, 'map'])->name('user_ma
 Route::POST('/user-make-booking', [UserController::class, 'makeBooking'])->name('user_make_booking');
 // SUPPORT
 Route::get('/user-support/{user_id}', [UserController::class, 'support'])->name('user_support');
-
-// DELETE THESE
-Route::get('/admin-list-tables', function () {
-  return view('admin.list-of-tables');
-});
-
-Route::get('/admin-add-tables', function () {
-  return view('admin.add-tables');
-});
-
-Route::get('/admin-add-user', function () {
-  return view('admin.add-user');
-});

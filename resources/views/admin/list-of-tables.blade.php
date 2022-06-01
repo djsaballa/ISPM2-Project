@@ -20,87 +20,49 @@
             @include('components.sidenavAdmin')
         </sideNav>
 
-        <h1 class="sched-header">TABLES</h1>
+        <h1 class="sched-header">DESKS</h1>
+
+        @if (Session::has('table'))
+            <div role="alert">
+                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('table') !!}</p>
+            </div>
+        @endif
 
         <table class="sched-table" id="bookings">
             <thead class="sched-table-header">
                 <tr>
                     <th>Seat Number</th>
-                    <th class="last-col">Enabled</th>
+                    <th class="last-col">Status</th>
                     <th>
-                        <a href="#">
+                        <a href="{{ route(('admin_add_tables')) }}">
                             <button class="button add2">Add Table</button>
                         </a>
                     </th>
                 <tr>
             </thead>
             <tbody class="sched-table-row">
-
+                @foreach($desks as $desk)
                 <tr>
-                    <td>Desk 1</td>
-                    <td>Yes</td>
-                    <td>
-                        <a href="#">
-                            <button class="button enable-btn">Enable</button>
-                        </a>
-                        <a>
-                            <button type="button" class="bookings-cncl-btn" style=" background-color: #ff6d6d">Disable</button>
-                        </a>
+                    <td>Desk {{ $desk->seat_number }}</td>
+                    @if( $desk->getStatus($desk->id) == 'Disabled') 
+                        <td style="color: #ff6d6d">{{ $desk->getStatus($desk->id) }}</td>
+                    @else
+                        <td>{{ $desk->getStatus($desk->id) }}</td>
+                    @endif
+                    <td style="display:flex;">
+                        <form method="POST" action="{{ route('admin_enable_tables') }}">
+                            @csrf
+                            <input type="hidden" id="deskId" name="deskId" value="{{ $desk->id }}">
+                            <button type="submit" class="button enable-btn">Enable</button>
+                        </form>
+                        <form method="POST" action="{{ route('admin_disable_tables') }}">
+                            @csrf
+                            <input type="hidden" id="deskId" name="deskId" value="{{ $desk->id }}">
+                            <button type="submit" class="button enable-btn" style=" background-color: #ff6d6d">Disable</button>
+                        </form>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>Desk 2</td>
-                    <td>No</td>
-                    <td>
-                        <a href="#">
-                            <button class="button enable-btn">Enable</button>
-                        </a>
-                        <a>
-                            <button type="button" class="bookings-cncl-btn" style=" background-color: #ff6d6d">Disable</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Desk 3</td>
-                    <td>No</td>
-                    <td>
-                        <a href="#">
-                            <button class="button enable-btn">Enable</button>
-                        </a>
-                        <a>
-                            <button type="button" class="bookings-cncl-btn" style=" background-color: #ff6d6d">Disable</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Desk 4</td>
-                    <td>Yes</td>
-                    <td>
-                        <a href="#">
-                            <button class="button enable-btn">Enable</button>
-                        </a>
-                        <a>
-                            <button type="button" class="bookings-cncl-btn" style=" background-color: #ff6d6d">Disable</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Desk 5</td>
-                    <td>Yes</td>
-                    <td>
-                        <a href="#">
-                            <button class="button enable-btn">Enable</button>
-                        </a>
-                        <a>
-                            <button type="button" class="bookings-cncl-btn" style="background-color: #ff6d6d">Disable</button>
-                        </a>
-                    </td>
-                </tr>
-
+                @endforeach
             </tbody>
         </table>
         <footer>
