@@ -72,3 +72,7 @@ Route::get('/admin-list-tables', function () {
 Route::get('/admin-add-tables', function () {
   return view('admin.add-tables');
 });
+
+Route::get('/admin-add-user', function () {
+  return view('admin.add-user');
+});

@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-  
-      <!-- FAVICON -->
-      <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
-  
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ asset('images/favicon-32x32.png') }}">
+
     <title>eMachine | List of Employees</title>
 </head>
 
@@ -22,14 +22,14 @@
     <h1 class="employee-header">EMPLOYEES</h1>
 
     @if (Session::has('succesful-change'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-change') !!}</p>
-            </div>
+    <div role="alert">
+        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('succesful-change') !!}</p>
+    </div>
     @endif
     @if (Session::has('unsuccesful-change'))
-            <div role="alert">
-                <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-change') !!}</p>
-            </div>
+    <div role="alert">
+        <p class="error" style="color: #226acc; text-align:center; background-color: #eaeefb">{!! Session::get('unsuccesful-change') !!}</p>
+    </div>
     @endif
 
     <table class="employee-table" id="employees">
@@ -40,7 +40,11 @@
                 <th>Department</th>
                 <th>Email</th>
                 <th>Phone Number</th>
-                <th></th>
+                <th>
+                    <a href="#">
+                        <button class="btn-addUser">Add User</button>
+                    </a>
+                </th>
             <tr>
         </thead>
         <tbody class="employee-table-row">
